@@ -1,14 +1,15 @@
-         <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ನಿಮ್ಮ ಮನೆಯವರಿಗೆ - Order Anything in Kollegala</title>
+    <title>ನಿಮ್ಮಮನೆವರೆಗೆ - namma Kollegala's Local Delivery Service</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Reset & Base */
         * {
             margin: 0;
             padding: 0;
@@ -17,520 +18,862 @@
         }
 
         :root {
-            --primary: #1a5fb4;
-            --primary-dark: #1a5a96;
-            --secondary: #26a269;
-            --accent: #c64600;
-            --black: #241f31;
-            --gray-900: #3d3846;
-            --gray-800: #5e5c64;
-            --gray-700: #77767b;
-            --gray-600: #9a9996;
-            --gray-500: #b0afac;
-            --gray-400: #d1d0cf;
-            --gray-300: #e6e5e4;
-            --gray-200: #f0efee;
-            --gray-100: #f6f5f4;
-            --white: #ffffff;
-            
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 3px 8px rgba(0, 0, 0, 0.12);
-            --shadow-lg: 0 6px 16px rgba(0, 0, 0, 0.15);
-            --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.18);
-            
+            --primary-blue: #1a5fb4;
+            --primary-dark: #0f4a8c;
+            --primary-light: #e8f1ff;
+            --secondary-green: #26a269;
+            --accent-orange: #e45c10;
+            --accent-red: #dc2626;
+            --text-dark: #1f2937;
+            --text-gray: #4b5563;
+            --text-light: #6b7280;
+            --border-light: #e5e7eb;
+            --border-medium: #d1d5db;
+            --background-white: #ffffff;
+            --background-light: #f9fafb;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.12);
             --radius-sm: 6px;
-            --radius-md: 10px;
-            --radius-lg: 14px;
-            --radius-xl: 18px;
-            --radius-full: 100px;
-            
-            --transition: 200ms ease;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: var(--gray-100);
-            color: var(--gray-900);
-            line-height: 1.5;
-            min-height: 100vh;
-            padding: 20px;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(26, 95, 180, 0.03) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(38, 162, 105, 0.03) 0%, transparent 20%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--background-light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
         }
 
-        /* Header - More Human Design */
-        .header {
-            margin-bottom: 40px;
-            position: relative;
-            padding-top: 10px;
+        /* Header */
+        .main-header {
+            background: var(--background-white);
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
         }
 
         .logo-container {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 2px solid var(--primary-blue);
+            box-shadow: var(--shadow-sm);
+            background: var(--background-white);
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--gray-300);
+            justify-content: center;
+            flex-shrink: 0;
         }
 
-        .logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 25px;
+        .logo-container img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border: 4px solid var(--white);
-            box-shadow: var(--shadow-lg);
-            background: var(--white);
-            padding: 2px;
+        }
+
+        .logo-container i {
+            font-size: 32px;
+            color: var(--primary-blue);
         }
 
         .brand-text {
-            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .brand-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 36px;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 5px;
-            letter-spacing: -0.5px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            line-height: 1.2;
+            letter-spacing: -0.3px;
         }
 
         .brand-subtitle {
-            font-size: 16px;
-            color: var(--gray-700);
+            font-size: 13px;
+            color: var(--text-gray);
             font-weight: 500;
-            margin-bottom: 8px;
+            margin-top: 2px;
         }
 
-        .tagline {
-            font-size: 18px;
-            color: var(--gray-800);
-            font-weight: 500;
-            line-height: 1.4;
-            padding: 15px 20px;
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
-            border-left: 4px solid var(--secondary);
-        }
-
-        .tagline strong {
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        /* Main Card - More Organic Design */
-        .main-card {
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-xl);
-            overflow: hidden;
-            margin-bottom: 40px;
-            border: 1px solid var(--gray-300);
-            position: relative;
-        }
-
-        .main-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-        }
-
-        .card-header {
-            background: linear-gradient(135deg, var(--primary) 0%, #2a7fd8 100%);
-            color: var(--white);
-            padding: 35px 30px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-header::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-            opacity: 0.2;
-        }
-
-        .card-header h1 {
-            font-size: 32px;
-            margin-bottom: 12px;
-            font-weight: 800;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-header p {
-            opacity: 0.95;
-            font-size: 17px;
-            font-weight: 400;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-content {
-            padding: 40px 35px;
-        }
-
-        /* Form - More Natural Design */
-        .form-section {
-            margin-bottom: 35px;
-            position: relative;
-        }
-
-        .form-section::before {
-            content: '';
-            position: absolute;
-            left: -15px;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--gray-300);
-            border-radius: var(--radius-full);
-        }
-
-        .form-label {
+        .contact-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 17px;
-            font-weight: 600;
-            color: var(--gray-900);
-            margin-bottom: 15px;
-            padding-left: 5px;
+            gap: 20px;
         }
 
-        .form-label i {
-            color: var(--primary);
-            font-size: 20px;
-            width: 24px;
-            text-align: center;
-        }
-
-        .form-textarea {
-            width: 100%;
-            min-height: 130px;
-            padding: 20px;
-            border: 2px solid var(--gray-300);
-            border-radius: var(--radius-lg);
-            font-family: inherit;
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--gray-900);
-            resize: vertical;
-            transition: all var(--transition);
-            background: var(--gray-100);
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .form-textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(26, 95, 180, 0.1);
-            background: var(--white);
-        }
-
-        .form-textarea::placeholder {
-            color: var(--gray-600);
-            font-style: italic;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 17px 20px;
-            border: 2px solid var(--gray-300);
-            border-radius: var(--radius-lg);
-            font-size: 16px;
-            color: var(--gray-900);
-            transition: all var(--transition);
-            background: var(--gray-100);
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(26, 95, 180, 0.1);
-            background: var(--white);
-        }
-
-        .form-hint {
-            font-size: 14px;
-            color: var(--gray-700);
-            margin-top: 10px;
+        .contact-item {
             display: flex;
             align-items: center;
             gap: 8px;
-            padding-left: 5px;
-            font-style: italic;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .contact-item:hover {
+            background: var(--primary-light);
+            border-color: var(--primary-blue);
+        }
+
+        .contact-item i {
+            color: var(--primary-blue);
+            font-size: 14px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 60px 0 40px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, rgba(255,255,255,1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(26, 95, 180, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero-title span {
+            color: var(--primary-blue);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .feature-text {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        /* Service Selection */
+        .services-section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .service-card {
+            background: var(--background-white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-blue);
+        }
+
+        .service-header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .service-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .service-description {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .service-body {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-details {
+            color: var(--text-gray);
+            margin-bottom: 24px;
+            flex-grow: 1;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .service-cta {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .service-cta:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Forms */
+        .form-container {
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-card {
+            background: var(--background-white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            margin-bottom: 40px;
+        }
+
+        .form-header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 28px 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, transparent 50%, rgba(255,255,255,0.1) 50%);
+            transform: rotate(45deg) translate(30px, -60px);
+        }
+
+        .form-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .form-subtitle {
+            opacity: 0.9;
+            font-size: 15px;
+        }
+
+        .form-content {
+            padding: 32px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .form-label i {
+            color: var(--primary-blue);
+            margin-right: 8px;
+            width: 16px;
+            text-align: center;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 15px;
+            color: var(--text-dark);
+            background: var(--background-white);
+            transition: var(--transition);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(26, 95, 180, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+            line-height: 1.5;
+        }
+
+        .form-hint {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         /* Location Section */
         .location-section {
-            background: linear-gradient(135deg, rgba(26, 95, 180, 0.05) 0%, rgba(38, 162, 105, 0.05) 100%);
+            background: var(--primary-light);
             border-radius: var(--radius-lg);
-            padding: 28px;
-            margin: 35px 0;
-            border: 1px solid var(--gray-300);
-            position: relative;
-        }
-
-        .location-section::before {
-            content: '📍';
-            position: absolute;
-            top: -15px;
-            right: 20px;
-            font-size: 28px;
-            background: var(--white);
-            padding: 5px 15px;
-            border-radius: var(--radius-full);
-            box-shadow: var(--shadow-sm);
+            padding: 24px;
+            margin: 32px 0;
+            border: 2px dashed var(--primary-blue);
         }
 
         .location-header {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 20px;
         }
 
         .location-icon {
-            width: 52px;
-            height: 52px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            border-radius: var(--radius-full);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 22px;
-            box-shadow: var(--shadow-md);
-        }
-
-        .location-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--gray-900);
-        }
-
-        .location-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .location-btn {
-            padding: 17px;
-            border-radius: var(--radius-lg);
-            font-weight: 600;
-            font-size: 15px;
-            cursor: pointer;
-            transition: all var(--transition);
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .location-btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            opacity: 0;
-            transition: opacity var(--transition);
-        }
-
-        .location-btn.primary {
-            background: var(--primary);
-            color: var(--white);
-            box-shadow: var(--shadow-md);
-        }
-
-        .location-btn.primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .location-btn.primary:hover::after {
-            opacity: 1;
-        }
-
-        .location-btn.secondary {
-            background: var(--white);
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .location-btn.secondary:hover {
-            background: var(--primary);
-            color: var(--white);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .location-btn i {
-            position: relative;
-            z-index: 1;
-        }
-
-        .location-btn span {
-            position: relative;
-            z-index: 1;
-        }
-
-        .current-location {
-            font-size: 15px;
-            color: var(--gray-800);
-            padding: 16px;
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            border: 2px solid var(--gray-300);
-            display: none;
-            margin-top: 16px;
-            line-height: 1.5;
-            position: relative;
-            padding-left: 45px;
-        }
-
-        .current-location.active {
-            display: block;
-            animation: fadeInUp 0.3s ease-out;
-        }
-
-        .current-location::before {
-            content: '✓';
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 24px;
-            height: 24px;
-            background: var(--secondary);
-            color: var(--white);
+            width: 48px;
+            height: 48px;
+            background: var(--primary-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
+            color: white;
+            font-size: 20px;
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Order Actions */
-        .order-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            margin-top: 40px;
-        }
-
-        .order-btn {
-            padding: 22px;
-            border-radius: var(--radius-lg);
-            font-weight: 700;
+        .location-title {
+            font-weight: 600;
+            color: var(--text-dark);
             font-size: 18px;
+        }
+
+        .location-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 14px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 15px;
             cursor: pointer;
-            transition: all var(--transition);
+            transition: var(--transition);
             border: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            position: relative;
-            overflow: hidden;
+            gap: 10px;
+            text-decoration: none;
         }
 
-        .order-btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            opacity: 0;
-            transition: opacity var(--transition);
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
         }
 
-        .order-btn.primary {
-            background: var(--primary);
-            color: var(--white);
-            box-shadow: var(--shadow-lg);
+        .btn-primary:hover {
+            background: var(--primary-dark);
         }
 
-        .order-btn.primary:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-xl);
+        .btn-secondary {
+            background: white;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
         }
 
-        .order-btn.primary:hover::after {
-            opacity: 1;
+        .btn-secondary:hover {
+            background: var(--primary-light);
         }
 
-        .order-btn.whatsapp {
+        .location-display {
+            background: white;
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-top: 16px;
+            display: none;
+        }
+
+        .location-display.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .location-text {
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        /* Service Type Selection */
+        .service-type-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin: 32px 0;
+            border: 1px solid #bae6fd;
+        }
+
+        .service-type-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .service-type-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .service-type-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 18px;
+        }
+
+        .service-type-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .service-type-option {
+            background: white;
+            border: 2px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-align: center;
+        }
+
+        .service-type-option:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        .service-type-option.selected {
+            border-color: var(--primary-blue);
+            background: var(--primary-light);
+        }
+
+        .service-type-icon-small {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .service-type-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 16px;
+        }
+
+        .service-type-desc {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        /* Fare Section */
+        .fare-section {
+            background: linear-gradient(135deg, #fff8e6 0%, #fff0d6 100%);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin: 32px 0;
+            border: 1px solid #fde68a;
+        }
+
+        .fare-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .fare-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .fare-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 18px;
+        }
+
+        .fare-display {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            border: 2px solid var(--border-light);
+            text-align: center;
+        }
+
+        .fare-amount {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            padding: 10px;
+            border-radius: var(--radius-md);
+            background: var(--primary-light);
+            margin: 10px 0;
+        }
+
+        .fare-note {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Payment Section */
+        .payment-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin: 32px 0;
+            border: 1px solid #bae6fd;
+        }
+
+        .payment-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .payment-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--secondary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .payment-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 18px;
+        }
+
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .payment-option {
+            background: white;
+            border: 2px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .payment-option:hover {
+            border-color: var(--primary-blue);
+        }
+
+        .payment-option.selected {
+            border-color: var(--primary-blue);
+            background: var(--primary-light);
+        }
+
+        .payment-option input[type="radio"] {
+            accent-color: var(--primary-blue);
+            transform: scale(1.2);
+        }
+
+        .payment-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            flex-grow: 1;
+        }
+
+        .upi-payment {
             background: #25D366;
-            color: var(--white);
-            box-shadow: var(--shadow-lg);
+            color: white;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin-top: 20px;
+            display: none;
+            text-align: center;
         }
 
-        .order-btn.whatsapp:hover {
-            background: #128C7E;
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-xl);
+        .upi-payment.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
         }
 
-        .order-btn i {
-            position: relative;
-            z-index: 1;
+        .upi-action {
+            display: block;
+            background: white;
+            color: var(--text-dark);
+            padding: 16px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            text-align: center;
         }
 
-        .order-btn span {
-            position: relative;
-            z-index: 1;
+        .upi-action:hover {
+            background: #f8f9fa;
+            border-color: var(--secondary-green);
+            transform: translateY(-2px);
+        }
+
+        .upi-action i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        /* Form Actions */
+        .form-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn-lg {
+            padding: 16px 32px;
+            font-size: 16px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .btn-back {
+            background: var(--background-light);
+            color: var(--text-dark);
+            border: 2px solid var(--border-medium);
+        }
+
+        .btn-back:hover {
+            background: var(--border-light);
+        }
+
+        .btn-submit {
+            background: var(--secondary-green);
+            color: white;
+        }
+
+        .btn-submit:hover {
+            background: #1f8b4d;
         }
 
         /* Receipt Modal */
-        .receipt-modal {
+        .modal {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -538,24 +881,23 @@
             z-index: 1000;
             opacity: 0;
             visibility: hidden;
-            transition: all var(--transition);
+            transition: var(--transition);
         }
 
-        .receipt-modal.active {
+        .modal.active {
             opacity: 1;
             visibility: visible;
         }
 
-        .receipt-content {
-            background: var(--white);
+        .modal-content {
+            background: var(--background-white);
             border-radius: var(--radius-xl);
+            max-width: 600px;
             width: 100%;
-            max-width: 550px;
-            max-height: 85vh;
+            max-height: 90vh;
             overflow-y: auto;
             box-shadow: var(--shadow-xl);
             animation: slideUp 0.3s ease-out;
-            border: 1px solid var(--gray-300);
         }
 
         @keyframes slideUp {
@@ -563,677 +905,1238 @@
             to { transform: translateY(0); opacity: 1; }
         }
 
-        .receipt-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: var(--white);
-            padding: 25px 30px;
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 24px 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
         }
 
-        .receipt-header h2 {
+        .modal-title {
+            font-family: 'Outfit', sans-serif;
             font-size: 24px;
-            font-weight: 700;
+            font-weight: 600;
         }
 
-        .close-receipt {
-            width: 42px;
-            height: 42px;
-            border-radius: var(--radius-full);
+        .modal-close {
             background: rgba(255, 255, 255, 0.2);
-            color: var(--white);
             border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            font-size: 20px;
-            transition: all var(--transition);
+            transition: var(--transition);
         }
 
-        .close-receipt:hover {
+        .modal-close:hover {
             background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
         }
 
-        .receipt-body {
-            padding: 30px;
+        .modal-body {
+            padding: 32px;
         }
 
-        .receipt-preview {
-            background: var(--gray-100);
-            border-radius: var(--radius-lg);
-            padding: 25px;
-            font-family: 'Courier New', 'Menlo', 'Monaco', monospace;
+        .receipt {
+            background: var(--background-light);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            font-family: 'Source Sans Pro', monospace;
             font-size: 15px;
-            color: var(--gray-900);
             line-height: 1.6;
-            white-space: pre-wrap;
-            margin-bottom: 25px;
-            max-height: 350px;
-            overflow-y: auto;
-            border: 1px solid var(--gray-300);
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 24px;
+            border: 1px solid var(--border-light);
+            white-space: pre-line;
         }
 
         /* Toast */
         .toast {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--gray-900);
-            color: var(--white);
-            padding: 18px 26px;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-xl);
+            bottom: 24px;
+            right: 24px;
+            background: var(--text-dark);
+            color: white;
+            padding: 16px 24px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
             z-index: 1001;
-            font-weight: 600;
-            opacity: 0;
-            transform: translateX(100%);
-            transition: all var(--transition);
+            font-weight: 500;
+            transform: translateX(120%);
+            transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             max-width: 400px;
-            border-left: 4px solid var(--secondary);
         }
 
         .toast.show {
-            opacity: 1;
             transform: translateX(0);
         }
 
         .toast.success {
-            background: var(--secondary);
-            border-left-color: var(--primary);
+            background: var(--secondary-green);
+            border-left: 4px solid #1f8b4d;
         }
 
         .toast.error {
-            background: #c01c28;
-            border-left-color: #a51d2d;
+            background: var(--accent-red);
+            border-left: 4px solid #b91c1c;
         }
 
         .toast.warning {
-            background: #e5a50a;
-            border-left-color: #c57600;
+            background: #f59e0b;
+            border-left: 4px solid #d97706;
         }
 
         /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px 0 30px;
-            color: var(--gray-700);
-            font-size: 15px;
-            border-top: 1px solid var(--gray-300);
-            margin-top: 40px;
+        .main-footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 60px 0 40px;
+            margin-top: 60px;
         }
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 35px;
-            margin-top: 25px;
-            flex-wrap: wrap;
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
         }
 
-        .contact-item {
+        .footer-section {
+            margin-bottom: 24px;
+        }
+
+        .footer-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            margin-bottom: 16px;
+            border: 2px solid var(--primary-blue);
+        }
+
+        .footer-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .company-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .company-tagline {
+            color: #d1d5db;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            color: var(--gray-800);
-            text-decoration: none;
-            transition: all var(--transition);
-            padding: 10px 20px;
-            background: var(--white);
-            border-radius: var(--radius-full);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--gray-300);
+            gap: 12px;
+            color: #d1d5db;
         }
 
-        .contact-item:hover {
-            color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--primary);
+        .contact-list i {
+            color: var(--primary-blue);
+            width: 16px;
         }
 
-        .footer-tagline {
-            font-size: 16px;
-            color: var(--gray-800);
-            margin-top: 15px;
-            font-weight: 500;
-            font-style: italic;
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            margin-bottom: 8px;
+            color: #d1d5db;
+            font-size: 14px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 14px;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            body {
-                padding: 15px;
+            .hero-title {
+                font-size: 32px;
             }
             
-            .logo {
-                width: 100px;
-                height: 100px;
+            .hero-subtitle {
+                font-size: 16px;
             }
             
-            .brand-title {
-                font-size: 28px;
+            .contact-header {
+                display: none;
             }
             
-            .card-header {
-                padding: 30px 25px;
+            .header-content {
+                justify-content: center;
             }
             
-            .card-header h1 {
-                font-size: 26px;
+            .form-grid {
+                grid-template-columns: 1fr;
             }
             
-            .card-content {
-                padding: 30px 25px;
+            .form-actions {
+                flex-direction: column;
             }
             
-            .form-textarea {
-                min-height: 110px;
-                padding: 18px;
+            .btn-lg {
+                min-width: 100%;
             }
             
             .location-actions {
                 grid-template-columns: 1fr;
             }
             
-            .order-btn {
-                padding: 20px;
-                font-size: 16px;
+            .service-type-options {
+                grid-template-columns: 1fr;
             }
             
-            .contact-info {
-                flex-direction: column;
-                gap: 15px;
-                align-items: center;
-            }
-            
-            .contact-item {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-            
-            .toast {
-                bottom: 20px;
-                right: 20px;
-                left: 20px;
-                max-width: none;
+            .modal-content {
+                max-height: 95vh;
             }
         }
 
         @media (max-width: 480px) {
-            .logo-container {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
+            .hero-title {
+                font-size: 28px;
             }
             
-            .logo {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .brand-title {
-                font-size: 32px;
-            }
-            
-            .card-header h1 {
+            .section-title {
                 font-size: 24px;
             }
             
-            .card-header p {
-                font-size: 16px;
+            .form-header {
+                padding: 24px;
             }
             
-            .form-section::before {
-                display: none;
+            .form-title {
+                font-size: 24px;
             }
             
-            .form-label {
-                padding-left: 0;
+            .form-content {
+                padding: 24px;
             }
             
-            .form-hint {
-                padding-left: 0;
+            .service-card {
+                min-height: auto;
             }
             
-            .location-section::before {
-                display: none;
+            .toast {
+                left: 20px;
+                right: 20px;
+                bottom: 20px;
+                max-width: none;
             }
         }
 
-        /* Custom scrollbar */
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-4 {
+            margin-bottom: 16px;
+        }
+
+        .mt-4 {
+            margin-top: 16px;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
+            height: 8px;
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--gray-200);
-            border-radius: var(--radius-full);
+            background: var(--background-light);
+            border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--gray-500);
-            border-radius: var(--radius-full);
+            background: var(--border-medium);
+            border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--gray-600);
+            background: var(--text-light);
         }
 
         /* Selection */
         ::selection {
             background-color: rgba(26, 95, 180, 0.2);
-            color: var(--primary);
+            color: var(--primary-blue);
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header class="main-header">
         <div class="container">
-            <div class="logo-container">
-                <img src="IMG-20260201-WA0000.jpg" alt="ನಿಮ್ಮ ಮನೆಯವರಿಗೆ" class="logo">
-                <div class="brand-text">
-                    <h1 class="brand-title">ನಿಮ್ಮ ಮನೆಯವರಿಗೆ</h1>
-                    <p class="brand-subtitle">Namma Kollegala Delivery Service</p>
-                    <p class="tagline"><strong>ಸೂಪರ್ ಫಾಸ್ಟ್ ಡೆಲಿವರಿ:</strong> Order anything from anywhere in Kollegala, delivered in 10-30 minutes</p>
+            <div class="header-content">
+                <a href="#" class="logo-section" onclick="showServiceSelection(); return false;">
+                    <div class="logo-container">
+                        <!-- Replace with your logo image -->
+                        <img src="1770392046117.png" alt="ನಿಮ್ಮಮನೆವರೆಗೆ Logo">
+                        
+                    </div>
+                    <div class="brand-text">
+                        <div class="brand-title">ನಿಮ್ಮಮನೆವರೆಗೆ</div>
+                        <div class="brand-subtitle">Kollegala's Trusted Delivery Partner</div>
+                    </div>
+                </a>
+                
+                <div class="contact-header">
+                    <a href="tel:+919448167849" class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        +91 94481 67849
+                    </a>
+                    <a href="https://wa.me/919448167849" class="contact-item" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Order Form -->
-    <main class="container">
-        <div class="main-card">
-            <div class="card-header">
-                <h1>What do you need today?</h1>
-                <p>Tell us what you want and we'll get it for you - simple as that</p>
-            </div>
-            
-            <div class="card-content">
-                <!-- What you want -->
-                <div class="form-section">
-                    <label class="form-label">
-                        <i class="fas fa-shopping-basket"></i>
-                        What items do you need?
-                    </label>
-                    <textarea 
-                        class="form-textarea" 
-                        id="orderItems" 
-                        placeholder="Type exactly what you need... Example: 2kg apples, 1 packet bread, milk, eggs, medicines, or anything else"
-                        rows="5"
-                    ></textarea>
-                    <div class="form-hint">
-                        <i class="fas fa-info-circle"></i>
-                        Be specific about quantities and brands if important
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title"> Delivery Services in <span>Kollegala</span></h1>
+                <p class="hero-subtitle">Fast, reliable food delivery and pickup-drop services directly to your doorstep. Serving Kollegala with excellence.</p>
+                
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-text">Safe & Secure</div>
                     </div>
-                </div>
-
-                <!-- From which shop -->
-                <div class="form-section">
-                    <label class="form-label">
-                        <i class="fas fa-store-alt"></i>
-                        Any specific shop or market?
-                    </label>
-                    <input 
-                        type="text" 
-                        class="form-input" 
-                        id="shopName" 
-                        placeholder="If you have a preferred shop, mention it here. Otherwise leave blank and we'll find the best option"
-                    >
-                    <div class="form-hint">
-                        <i class="fas fa-lightbulb"></i>
-                        We know all the best shops in Kollegala
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-rupee-sign"></i>
+                        </div>
+                        <div class="feature-text">Best Price</div>
                     </div>
-                </div>
-
-                <!-- Special Instructions -->
-                <div class="form-section">
-                    <label class="form-label">
-                        <i class="fas fa-clipboard-check"></i>
-                        Special notes for us
-                    </label>
-                    <textarea 
-                        class="form-textarea" 
-                        id="specialInstructions" 
-                        placeholder="Any special instructions, preferences, or things we should know..."
-                        rows="3"
-                    ></textarea>
-                </div>
-
-                <!-- Location Section -->
-                <div class="location-section">
-                    <div class="location-header">
-                        <div class="location-icon">
+                    <div class="feature-item">
+                        <div class="feature-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <div>
-                            <div class="location-title">Where should we deliver?</div>
+                        <div class="feature-text">Citywide</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
                         </div>
+                        <div class="feature-text">Fast Delivery</div>
                     </div>
-                    
-                    <div class="location-actions">
-                        <button class="location-btn primary" id="getLocationBtn">
-                            <i class="fas fa-location-arrow"></i>
-                            <span>Use my current location</span>
-                        </button>
-                        <button class="location-btn secondary" id="manualLocationBtn">
-                            <i class="fas fa-map-pin"></i>
-                            <span>Enter address manually</span>
-                        </button>
-                    </div>
-                    
-                    <div class="current-location" id="currentLocation">
-                        <span id="locationText">Location not set yet. Click above to set your delivery address.</span>
-                    </div>
-                </div>
-
-                <!-- Order Actions -->
-                <div class="order-actions">
-                    <button class="order-btn primary" id="previewOrderBtn">
-                        <i class="fas fa-eye"></i>
-                        <span>Preview my order</span>
-                    </button>
-                    <button class="order-btn whatsapp" id="sendWhatsAppBtn">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>Send order via WhatsApp</span>
-                    </button>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Receipt Modal -->
-    <div class="receipt-modal" id="receiptModal">
-        <div class="receipt-content">
-            <div class="receipt-header">
-                <h2>Your order preview</h2>
-                <button class="close-receipt" id="closeReceiptBtn">
+    <!-- Service Selection -->
+    <section class="services-section" id="serviceSelection">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Professional Services</h2>
+                <p class="section-subtitle">Choose from our range of premium delivery solutions tailored for Kollegala residents</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="service-title">Food Delivery</h3>
+                        <p class="service-description">Order from Any Outlet</p>
+                    </div>
+                    <div class="service-body">
+                        <p class="service-details">Order anything from anywhere! Tell us what you want, we'll get it for you. From restaurants, bakeries, tea stalls, or any outlet in Kollegala.</p>
+                        <button class="service-cta" onclick="showService('delivery')">
+                            <i class="fas fa-shopping-cart"></i>
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-boxes-packing"></i>
+                        </div>
+                        <h3 class="service-title">Pickup & Drop</h3>
+                        <p class="service-description">Door-to-Door Service</p>
+                    </div>
+                    <div class="service-body">
+                        <p class="service-details">Reliable parcel delivery service anywhere in Kollegala. We pick up from your location and deliver to any destination. Fast and secure.</p>
+                        <button class="service-cta" onclick="showService('pickup')">
+                            <i class="fas fa-calendar-check"></i>
+                            Schedule Pickup
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Delivery Form -->
+    <div class="container">
+        <div class="form-container" id="deliveryForm">
+            <div class="form-card">
+                <div class="form-header">
+                    <h2 class="form-title">
+                        <i class="fas fa-utensils"></i>
+                        Food Delivery Order
+                    </h2>
+                    <p class="form-subtitle">Order anything from any outlet in Kollegala</p>
+                </div>
+                
+                <div class="form-content">
+                    <form id="deliveryOrderForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-user"></i>
+                                    Full Name
+                                </label>
+                                <input type="text" class="form-input" id="deliveryName" placeholder="Enter your full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-phone"></i>
+                                    Mobile Number
+                                </label>
+                                <input type="tel" class="form-input" id="deliveryPhone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+                                <div class="form-hint">
+                                    <i class="fas fa-info-circle"></i>
+                                    We'll call to confirm your order
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="location-section">
+                            <div class="location-header">
+                                <div class="location-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <h3 class="location-title">Delivery Address</h3>
+                            </div>
+                            
+                            <div class="location-actions">
+                                <button type="button" class="btn btn-primary" onclick="getUserLocation('delivery')">
+                                    <i class="fas fa-location-crosshairs"></i>
+                                    Use My Location
+                                </button>
+                                <button type="button" class="btn btn-secondary" onclick="showAddressModal('delivery')">
+                                    <i class="fas fa-map-pin"></i>
+                                    Enter Address
+                                </button>
+                            </div>
+                            
+                            <div class="location-display" id="deliveryLocationDisplay">
+                                <div class="location-text" id="deliveryLocationText">Location not set</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-store"></i>
+                                    Shop/Outlet Name
+                                </label>
+                                <input type="text" class="form-input" id="deliveryOutlet" placeholder="Enter shop name (e.g., Annapurna Hotel, Tea Stall, Bakery)" required>
+                                <div class="form-hint">
+                                    <i class="fas fa-info-circle"></i>
+                                    Name of the shop/outlet where we should pick up
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Shop Location
+                                </label>
+                                <input type="text" class="form-input" id="deliveryShopLocation" placeholder="Shop location/landmark" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-clipboard-list"></i>
+                                Order Details
+                            </label>
+                            <textarea class="form-textarea" id="deliveryItems" placeholder="Example: 2 Masala Dosas, 1 Coffee from CCD OR 1 Chicken Biryani from Annapurna Hotel OR Be specific about what you want..." rows="4" required></textarea>
+                            <div class="form-hint">
+                                <i class="fas fa-lightbulb"></i>
+                                Be specific: Item names, quantities, special instructions
+                            </div>
+                        </div>
+                        
+                        <div class="fare-section">
+                            <div class="fare-header">
+                                <div class="fare-icon">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <h3 class="fare-title">Delivery Charges</h3>
+                            </div>
+                            
+                            <div class="fare-display">
+                                <p>Standard Delivery Fee</p>
+                                <div class="fare-amount">₹30 Fixed</div>
+                                <div class="fare-note">
+                                    Flat rate for delivery anywhere in Kollegala
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-section">
+                            <div class="payment-header">
+                                <div class="payment-icon">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <h3 class="payment-title">Payment Method</h3>
+                            </div>
+                            
+                            <div class="payment-options">
+                                <div class="payment-option" onclick="selectPayment('delivery', 'cash')">
+                                    <input type="radio" name="deliveryPayment" id="deliveryCash" value="cash" checked>
+                                    <label class="payment-label">Cash on Delivery</label>
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <div class="payment-option" onclick="selectPayment('delivery', 'upi')">
+                                    <input type="radio" name="deliveryPayment" id="deliveryUpi" value="upi">
+                                    <label class="payment-label">Pay Now with UPI</label>
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="upi-payment" id="deliveryUpiPayment">
+                                <a href="upi://pay?pa=9448167849@paytm&pn=ನಿಮ್ಮಮನೆವರೆಗೆ&am=30&cu=INR&tn=Food%20Delivery%20Payment" class="upi-action">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Click to Pay ₹30 via UPI
+                                </a>
+                                <div class="form-hint mt-4">
+                                    <i class="fas fa-info-circle"></i>
+                                    Will open PhonePe/Google Pay/Paytm with pre-filled details
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-back btn-lg" onclick="showServiceSelection()">
+                                <i class="fas fa-arrow-left"></i>
+                                Back to Services
+                            </button>
+                            <button type="submit" class="btn btn-submit btn-lg">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit Order
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pickup & Drop Form -->
+        <div class="form-container" id="pickupForm">
+            <div class="form-card">
+                <div class="form-header">
+                    <h2 class="form-title">
+                        <i class="fas fa-boxes-packing"></i>
+                        Pickup & Drop Service
+                    </h2>
+                    <p class="form-subtitle">Schedule a pickup for delivery service</p>
+                </div>
+                
+                <div class="form-content">
+                    <form id="pickupOrderForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-user"></i>
+                                    Full Name
+                                </label>
+                                <input type="text" class="form-input" id="pickupName" placeholder="Enter your full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-phone"></i>
+                                    Mobile Number
+                                </label>
+                                <input type="tel" class="form-input" id="pickupPhone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+                                <div class="form-hint">
+                                    <i class="fas fa-info-circle"></i>
+                                    We'll call to confirm pickup time
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="location-section">
+                            <div class="location-header">
+                                <div class="location-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <h3 class="location-title">Pickup Address</h3>
+                            </div>
+                            
+                            <div class="location-actions">
+                                <button type="button" class="btn btn-primary" onclick="getUserLocation('pickup')">
+                                    <i class="fas fa-location-crosshairs"></i>
+                                    Use My Location
+                                </button>
+                                <button type="button" class="btn btn-secondary" onclick="showAddressModal('pickup')">
+                                    <i class="fas fa-map-pin"></i>
+                                    Enter Address
+                                </button>
+                            </div>
+                            
+                            <div class="location-display" id="pickupLocationDisplay">
+                                <div class="location-text" id="pickupLocationText">Location not set</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-flag-checkered"></i>
+                                Delivery Address
+                            </label>
+                            <input type="text" class="form-input" id="deliveryAddress" placeholder="Enter complete delivery address" required>
+                            <div class="form-hint">
+                                <i class="fas fa-info-circle"></i>
+                                Exact address for delivery in Kollegala
+                            </div>
+                        </div>
+                        
+                        <div class="service-type-section">
+                            <div class="service-type-header">
+                                <div class="service-type-icon">
+                                    <i class="fas fa-box"></i>
+                                </div>
+                                <h3 class="service-type-title">Service Type</h3>
+                            </div>
+                            
+                            <div class="service-type-options">
+                                <div class="service-type-option" onclick="selectServiceType('item')">
+                                    <div class="service-type-icon-small">
+                                        <i class="fas fa-box"></i>
+                                    </div>
+                                    <div class="service-type-label">Item Transport</div>
+                                    <div class="service-type-desc">Parcel, Documents, Packages</div>
+                                </div>
+                                
+                                <div class="service-type-option" onclick="selectServiceType('person')">
+                                    <div class="service-type-icon-small">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="service-type-label">Person Drop</div>
+                                    <div class="service-type-desc">Personal transportation</div>
+                                </div>
+                            </div>
+                            
+                            <input type="hidden" id="serviceType" value="">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-clipboard-check"></i>
+                                Details
+                            </label>
+                            <textarea class="form-textarea" id="serviceDetails" placeholder="For Item Transport: Describe the items, size, value, etc. For Person Drop: Number of persons, any special requirements..." rows="3" required></textarea>
+                        </div>
+                        
+                        <div class="fare-section">
+                            <div class="fare-header">
+                                <div class="fare-icon">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <h3 class="fare-title">Service Charges</h3>
+                            </div>
+                            
+                            <div class="fare-display">
+                                <p>Standard Pickup & Drop Fee</p>
+                                <div class="fare-amount">₹35-45</div>
+                                <div class="fare-note">
+                                    Final fare will be confirmed by rider based on distance and service type
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-section">
+                            <div class="payment-header">
+                                <div class="payment-icon">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <h3 class="payment-title">Payment Method</h3>
+                            </div>
+                            
+                            <div class="payment-options">
+                                <div class="payment-option" onclick="selectPayment('pickup', 'cash')">
+                                    <input type="radio" name="pickupPayment" id="pickupCash" value="cash" checked>
+                                    <label class="payment-label">Cash to Rider</label>
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <div class="payment-option" onclick="selectPayment('pickup', 'upi')">
+                                    <input type="radio" name="pickupPayment" id="pickupUpi" value="upi">
+                                    <label class="payment-label">Pay Now with UPI</label>
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="upi-payment" id="pickupUpiPayment">
+                                <a href="upi://pay?pa=9448167849@paytm&pn=ನಿಮ್ಮಮನೆವರೆಗೆ&am=40&cu=INR&tn=Pickup%20Service%20Payment" class="upi-action">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Click to Pay via UPI
+                                </a>
+                                <div class="form-hint mt-4">
+                                    <i class="fas fa-info-circle"></i>
+                                    Will open PhonePe/Google Pay/Paytm with pre-filled details
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-back btn-lg" onclick="showServiceSelection()">
+                                <i class="fas fa-arrow-left"></i>
+                                Back to Services
+                            </button>
+                            <button type="submit" class="btn btn-submit btn-lg">
+                                <i class="fas fa-calendar-check"></i>
+                                Schedule Service
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Address Modal -->
+    <div class="modal" id="addressModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Enter Address</h3>
+                <button class="modal-close" onclick="closeAddressModal()">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <div class="receipt-body">
-                <div class="receipt-preview" id="receiptPreview">
-                    <!-- Receipt content will be generated here -->
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Complete Address</label>
+                    <textarea class="form-textarea" id="manualAddress" placeholder="Enter your complete address including landmarks..." rows="4"></textarea>
                 </div>
-                <button class="order-btn whatsapp" id="confirmWhatsAppBtn">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>Send to WhatsApp</span>
+                <div class="form-group">
+                    <label class="form-label">Google Maps Link (Optional)</label>
+                    <input type="url" class="form-input" id="mapsLink" placeholder="https://maps.google.com/...">
+                </div>
+                <button class="btn btn-primary w-full" onclick="saveManualAddress()">
+                    <i class="fas fa-save"></i>
+                    Save Address
                 </button>
             </div>
         </div>
     </div>
 
+    <!-- Receipt Modal -->
+    <div class="modal" id="receiptModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Order Confirmation</h3>
+                <button class="modal-close" onclick="closeReceipt()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="receipt" id="receiptContent">
+                    <!-- Receipt content generated by JavaScript -->
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-submit btn-lg" onclick="sendToWhatsApp()" id="sendWhatsAppBtn">
+                        <i class="fab fa-whatsapp"></i>
+                        Send to WhatsApp (+91 94481 67849)
+                    </button>
+                    <div class="form-hint mt-4">
+                        <i class="fas fa-info-circle"></i>
+                        Service details will be sent to our WhatsApp for processing
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="main-footer">
         <div class="container">
-            <p>© 2026 ನಿಮ್ಮ ಮನೆಯವರಿಗೆ - Kollegala's Local Delivery Service</p>
-            <p class="footer-tagline">We deliver anything, from anywhere, to anywhere in Kollegala</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <!-- Replace with your logo image -->
+                        <img src="1770392046117.png" alt="Logo">
+                    </div>
+                    <div class="company-name">ನಿಮ್ಮಮನೆವರೆಗೆ</div>
+                    <p class="company-tagline">Kollegala's. Delivery Service</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Contact Information</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+91 94481 67849</span>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp: +91 94481 67849</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kollegala, Karnataka</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Service Hours</h4>
+                    <ul class="hours-list">
+                        <li>Monday - Sunday: 10:00 AM - 10:00 PM</li>
+                        <li>Emergency: Available on Call + extra charge</li>
+                        <li>Holidays: Open</li>
+                    </ul>
+                </div>
+            </div>
             
-            <div class="contact-info">
-                <a href="tel:+919448167849" class="contact-item">
-                    <i class="fas fa-phone-alt"></i>
-                    Call: +91 94481 67849
-                </a>
-                <div class="contact-item">
-                    <i class="fas fa-clock"></i>
-                    6 AM - 11 PM, 7 days
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-bolt"></i>
-                    10-30 minute delivery
-                </div>
+            <div class="copyright">
+                &copy; 2026 ನಿಮ್ಮಮನೆವರೆಗೆ -  Delivery Services. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <!-- Toast -->
-    <div class="toast" id="toast">
-        <!-- Toast messages will appear here -->
-    </div>
-
     <script>
+        // Application State
+        const state = {
+            currentService: '',
+            pickupLocation: null,
+            deliveryLocation: null,
+            serviceType: '',
+            pickupFare: '₹35-45',
+            deliveryFare: '₹30',
+            orderData: null,
+            currentForm: null
+        };
+
         // DOM Elements
-        const orderItemsInput = document.getElementById('orderItems');
-        const shopNameInput = document.getElementById('shopName');
-        const specialInstructionsInput = document.getElementById('specialInstructions');
-        const getLocationBtn = document.getElementById('getLocationBtn');
-        const manualLocationBtn = document.getElementById('manualLocationBtn');
-        const currentLocationDiv = document.getElementById('currentLocation');
-        const locationText = document.getElementById('locationText');
-        const previewOrderBtn = document.getElementById('previewOrderBtn');
-        const sendWhatsAppBtn = document.getElementById('sendWhatsAppBtn');
+        const serviceSelection = document.getElementById('serviceSelection');
+        const deliveryForm = document.getElementById('deliveryForm');
+        const pickupForm = document.getElementById('pickupForm');
+        const addressModal = document.getElementById('addressModal');
         const receiptModal = document.getElementById('receiptModal');
-        const receiptPreview = document.getElementById('receiptPreview');
-        const closeReceiptBtn = document.getElementById('closeReceiptBtn');
-        const confirmWhatsAppBtn = document.getElementById('confirmWhatsAppBtn');
         const toast = document.getElementById('toast');
+        const receiptContent = document.getElementById('receiptContent');
+        const sendWhatsAppBtn = document.getElementById('sendWhatsAppBtn');
 
-        // State
-        let userLocation = null;
-        let currentAddress = "";
-        let orderId = 'NM' + Date.now().toString().slice(-6);
+        // Service Navigation
+        function showService(service) {
+            state.currentService = service;
+            serviceSelection.style.display = 'none';
+            
+            if (service === 'delivery') {
+                deliveryForm.classList.add('active');
+                state.currentForm = 'delivery';
+                state.deliveryFare = '₹30';
+            } else {
+                pickupForm.classList.add('active');
+                state.currentForm = 'pickup';
+                state.pickupFare = '₹35-45';
+            }
+            
+            // Scroll to form
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            showToast('Please fill in the required details', 'success');
+        }
 
-        // Show Toast
+        function showServiceSelection() {
+            state.currentService = '';
+            deliveryForm.classList.remove('active');
+            pickupForm.classList.remove('active');
+            serviceSelection.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Location Handling
+        function getUserLocation(formType) {
+            if (!navigator.geolocation) {
+                showToast('Geolocation is not supported by your browser', 'error');
+                return;
+            }
+
+            const button = event.target.closest('button');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Detecting...';
+            button.disabled = true;
+
+            navigator.geolocation.getCurrentPosition(
+                async (position) => {
+                    const location = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    try {
+                        const address = await reverseGeocode(location.lat, location.lng);
+                        saveLocation(formType, location, address);
+                        button.innerHTML = originalText;
+                        button.disabled = false;
+                        showToast('Location captured successfully', 'success');
+                    } catch (error) {
+                        saveLocation(formType, location, `Near Kollegala (${location.lat.toFixed(6)}, ${location.lng.toFixed(6)})`);
+                        button.innerHTML = originalText;
+                        button.disabled = false;
+                        showToast('Location captured', 'success');
+                    }
+                },
+                (error) => {
+                    showToast('Unable to retrieve location. Please enter manually.', 'error');
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    showAddressModal(formType);
+                },
+                { timeout: 10000, enableHighAccuracy: true }
+            );
+        }
+
+        async function reverseGeocode(lat, lng) {
+            try {
+                const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`);
+                const data = await response.json();
+                
+                if (data.display_name) {
+                    return data.display_name;
+                }
+            } catch (error) {
+                console.error('Geocoding error:', error);
+            }
+            
+            return `Location at ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+        }
+
+        function saveLocation(formType, location, address) {
+            if (formType === 'pickup') {
+                state.pickupLocation = location;
+                document.getElementById('pickupLocationText').textContent = address;
+                document.getElementById('pickupLocationDisplay').classList.add('active');
+            } else {
+                state.deliveryLocation = location;
+                document.getElementById('deliveryLocationText').textContent = address;
+                document.getElementById('deliveryLocationDisplay').classList.add('active');
+            }
+        }
+
+        function showAddressModal(formType) {
+            state.currentForm = formType;
+            addressModal.classList.add('active');
+        }
+
+        function closeAddressModal() {
+            addressModal.classList.remove('active');
+            document.getElementById('manualAddress').value = '';
+            document.getElementById('mapsLink').value = '';
+        }
+
+        function saveManualAddress() {
+            const address = document.getElementById('manualAddress').value.trim();
+            const mapsLink = document.getElementById('mapsLink').value.trim();
+            
+            if (!address) {
+                showToast('Please enter an address', 'warning');
+                return;
+            }
+
+            if (state.currentForm === 'pickup') {
+                state.pickupLocation = { manual: true, address };
+                document.getElementById('pickupLocationText').textContent = address;
+                document.getElementById('pickupLocationDisplay').classList.add('active');
+            } else {
+                state.deliveryLocation = { manual: true, address };
+                document.getElementById('deliveryLocationText').textContent = address;
+                document.getElementById('deliveryLocationDisplay').classList.add('active');
+            }
+
+            closeAddressModal();
+            showToast('Address saved successfully', 'success');
+        }
+
+        // Service Type Selection
+        function selectServiceType(type) {
+            state.serviceType = type;
+            const options = document.querySelectorAll('.service-type-option');
+            options.forEach(option => option.classList.remove('selected'));
+            
+            if (type === 'item') {
+                options[0].classList.add('selected');
+                document.getElementById('serviceType').value = 'item';
+                document.getElementById('serviceDetails').placeholder = "Describe the items, size, value, special handling instructions...";
+            } else {
+                options[1].classList.add('selected');
+                document.getElementById('serviceType').value = 'person';
+                document.getElementById('serviceDetails').placeholder = "Number of persons, any special requirements, pickup time preference...";
+            }
+            
+            showToast(`${type === 'item' ? 'Item Transport' : 'Person Drop'} selected`, 'success');
+        }
+
+        // Payment Handling
+        function selectPayment(formType, method) {
+            if (formType === 'delivery') {
+                document.getElementById('deliveryUpiPayment').classList.toggle('active', method === 'upi');
+            } else {
+                document.getElementById('pickupUpiPayment').classList.toggle('active', method === 'upi');
+            }
+        }
+
+        // Form Submission
+        document.getElementById('deliveryOrderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            generateReceipt('delivery');
+        });
+
+        document.getElementById('pickupOrderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            generateReceipt('pickup');
+        });
+
+        function generateReceipt(serviceType) {
+            const orderId = 'ORD' + Date.now().toString().slice(-8);
+            const timestamp = new Date().toLocaleString('en-IN', {
+                weekday: 'short',
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
+            let receipt = '';
+            
+            if (serviceType === 'delivery') {
+                const formData = {
+                    name: document.getElementById('deliveryName').value,
+                    phone: document.getElementById('deliveryPhone').value,
+                    outlet: document.getElementById('deliveryOutlet').value,
+                    shopLocation: document.getElementById('deliveryShopLocation').value,
+                    items: document.getElementById('deliveryItems').value,
+                    deliveryLocation: document.getElementById('deliveryLocationText').textContent,
+                    fare: state.deliveryFare,
+                    payment: document.querySelector('input[name="deliveryPayment"]:checked').value
+                };
+
+                receipt = `🍽️ *FOOD DELIVERY ORDER - ನಿಮ್ಮಮನೆವರೆಗೆ*
+━━━━━━━━━━━━━━━━━━━━━━━
+Order ID: ${orderId}
+Time: ${timestamp}
+━━━━━━━━━━━━━━━━━━━━━━━
+
+👤 *Customer Details*
+• Name: ${formData.name}
+• Phone: ${formData.phone}
+
+📍 *Delivery Address*
+${formData.deliveryLocation}
+
+🏪 *Outlet Details*
+• Shop/Outlet: ${formData.outlet}
+• Shop Location: ${formData.shopLocation}
+
+📋 *Order Details*
+${formData.items}
+
+💰 *Payment Summary*
+• Delivery Charges: ${formData.fare} (Fixed Rate)
+• Payment Method: ${formData.payment === 'cash' ? 'Cash on Delivery' : 'Paid via UPI'}
+• UPI ID for Payment: 9448167849@paytm
+
+📞 *Contact Support*
+• Call: +91 94481 67849
+• WhatsApp: +91 94481 67849
+
+━━━━━━━━━━━━━━━━━━━━━━━
+Thank you for choosing ನಿಮ್ಮಮನೆವರೆಗೆ!
+We'll contact you shortly to confirm your order.`;
+
+                state.orderData = { ...formData, serviceType, orderId, timestamp };
+
+            } else {
+                const formData = {
+                    name: document.getElementById('pickupName').value,
+                    phone: document.getElementById('pickupPhone').value,
+                    deliveryAddress: document.getElementById('deliveryAddress').value,
+                    serviceDetails: document.getElementById('serviceDetails').value,
+                    serviceType: state.serviceType,
+                    pickupLocation: document.getElementById('pickupLocationText').textContent,
+                    fare: state.pickupFare,
+                    payment: document.querySelector('input[name="pickupPayment"]:checked').value
+                };
+
+                if (!formData.serviceType) {
+                    showToast('Please select service type (Item Transport or Person Drop)', 'warning');
+                    return;
+                }
+
+                receipt = `📦 *PICKUP & DELIVERY SERVICE - ನಿಮ್ಮಮನೆವರೆಗೆ*
+━━━━━━━━━━━━━━━━━━━━━━━
+Order ID: ${orderId}
+Time: ${timestamp}
+━━━━━━━━━━━━━━━━━━━━━━━
+
+👤 *Customer Details*
+• Name: ${formData.name}
+• Phone: ${formData.phone}
+
+📍 *Pickup Address*
+${formData.pickupLocation}
+
+🎯 *Delivery Address*
+${formData.deliveryAddress}
+
+📋 *Service Details*
+• Service Type: ${formData.serviceType === 'item' ? 'Item Transport' : 'Person Drop'}
+• Details: ${formData.serviceDetails}
+
+💰 *Payment Summary*
+• Service Charges: ${formData.fare} (Ask rider for exact fare)
+• Payment Method: ${formData.payment === 'cash' ? 'Cash to Rider' : 'Paid via UPI'}
+• UPI ID for Payment: 9448167849@paytm
+
+📞 *Contact Support*
+• Call: +91 94481 67849
+• WhatsApp: +91 94481 67849
+
+━━━━━━━━━━━━━━━━━━━━━━━
+Thank you for choosing ನಿಮ್ಮಮನೆವರೆಗೆ!
+We'll contact you shortly to confirm pickup.`;
+
+                state.orderData = { ...formData, serviceType, orderId, timestamp };
+            }
+
+            receiptContent.textContent = receipt;
+            receiptModal.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function closeReceipt() {
+            receiptModal.classList.remove('active');
+        }
+
+        function sendToWhatsApp() {
+            if (!state.orderData) return;
+
+            const phoneNumber = '919448167849';
+            const message = encodeURIComponent(receiptContent.textContent);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+            
+            // Open WhatsApp in new tab
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form
+            resetForm(state.currentForm);
+            
+            // Show confirmation
+            showToast('Order sent to WhatsApp! We will contact you shortly.', 'success');
+            
+            // Close receipt and return to services
+            setTimeout(() => {
+                receiptModal.classList.remove('active');
+                showServiceSelection();
+            }, 2000);
+        }
+
+        function resetForm(formType) {
+            if (formType === 'delivery') {
+                document.getElementById('deliveryOrderForm').reset();
+                document.getElementById('deliveryLocationDisplay').classList.remove('active');
+                state.deliveryLocation = null;
+            } else {
+                document.getElementById('pickupOrderForm').reset();
+                document.getElementById('pickupLocationDisplay').classList.remove('active');
+                state.pickupLocation = null;
+                state.serviceType = '';
+                document.getElementById('serviceType').value = '';
+                document.querySelectorAll('.service-type-option').forEach(opt => opt.classList.remove('selected'));
+            }
+        }
+
+        // Toast Notification
         function showToast(message, type = 'success') {
             toast.textContent = message;
             toast.className = `toast ${type} show`;
             
             setTimeout(() => {
                 toast.className = 'toast';
-            }, 3000);
+            }, 4000);
         }
 
-        // Get Current Location
-        function getCurrentLocation() {
-            if (!navigator.geolocation) {
-                showToast('Your browser does not support location services', 'error');
-                return;
-            }
-            
-            getLocationBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Detecting location...</span>';
-            getLocationBtn.disabled = true;
-            
-            navigator.geolocation.getCurrentPosition(
-                async (position) => {
-                    const lat = position.coords.latitude;
-                    const lng = position.coords.longitude;
-                    
-                    userLocation = { lat, lng };
-                    
-                    try {
-                        const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
-                        const data = await response.json();
-                        currentAddress = data.display_name || `Near Kollegala (${lat.toFixed(4)}, ${lng.toFixed(4)})`;
-                        locationText.innerHTML = `<strong>✓ Location set:</strong> ${currentAddress}`;
-                        currentLocationDiv.classList.add('active');
-                        
-                        showToast('✓ Location captured successfully', 'success');
-                    } catch (error) {
-                        currentAddress = `Kollegala Area (${lat.toFixed(4)}, ${lng.toFixed(4)})`;
-                        locationText.innerHTML = `<strong>✓ Location set:</strong> ${currentAddress}`;
-                        currentLocationDiv.classList.add('active');
-                        showToast('Location captured', 'success');
-                    }
-                    
-                    getLocationBtn.innerHTML = '<i class="fas fa-location-arrow"></i><span>Update location</span>';
-                    getLocationBtn.disabled = false;
-                },
-                (error) => {
-                    showToast('Could not access your location. Please try manually.', 'error');
-                    getLocationBtn.innerHTML = '<i class="fas fa-location-arrow"></i><span>Use my location</span>';
-                    getLocationBtn.disabled = false;
-                }
-            );
-        }
-
-        // Enter Address Manually
-        function enterAddressManually() {
-            const address = prompt('Please enter your complete delivery address in Kollegala:', '');
-            if (address && address.trim()) {
-                userLocation = { lat: 12.1540, lng: 77.1167 };
-                currentAddress = address.trim();
-                locationText.innerHTML = `<strong>✓ Address saved:</strong> ${currentAddress}`;
-                currentLocationDiv.classList.add('active');
-                showToast('✓ Delivery address saved', 'success');
-            }
-        }
-
-        // Generate Order Receipt
-        function generateReceipt() {
-            const orderItems = orderItemsInput.value.trim();
-            const shopName = shopNameInput.value.trim();
-            const specialInstructions = specialInstructionsInput.value.trim();
-            
-            if (!orderItems) {
-                showToast('Please tell us what you need', 'warning');
-                return null;
-            }
-            
-            if (!currentAddress) {
-                showToast('Please set your delivery location first', 'warning');
-                return null;
-            }
-            
-            let receipt = `*ನಿಮ್ಮ ಮನೆಯವರಿಗೆ - ORDER REQUEST*\n`;
-            receipt += `═══════════════════════════════\n`;
-            receipt += `Order ID: #${orderId}\n`;
-            receipt += `Date: ${new Date().toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}\n`;
-            receipt += `Time: ${new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}\n`;
-            receipt += `═══════════════════════════════\n\n`;
-            
-            receipt += `*📦 ORDER DETAILS:*\n`;
-            receipt += `═══════════════════════════════\n`;
-            receipt += `${orderItems}\n`;
-            if (shopName) {
-                receipt += `\n🏪 Shop preference: ${shopName}\n`;
-            }
-            if (specialInstructions) {
-                receipt += `\n📝 Special notes: ${specialInstructions}\n`;
-            }
-            receipt += `═══════════════════════════════\n\n`;
-            
-            receipt += `*📍 DELIVERY INFORMATION:*\n`;
-            receipt += `═══════════════════════════════\n`;
-            receipt += `${currentAddress}\n`;
-            receipt += `🚀 Delivery: 10-30 minutes\n`;
-            receipt += `💵 Payment: Cash on delivery\n`;
-            receipt += `═══════════════════════════════\n\n`;
-            
-            receipt += `*📞 CONTACT DETAILS:*\n`;
-            receipt += `═══════════════════════════════\n`;
-            receipt += `Service: ನಿಮ್ಮ ಮನೆಯವರಿಗೆ\n`;
-            receipt += `Phone: +91 94481 67849\n`;
-            receipt += `Hours: 6 AM - 11 PM, 7 days\n`;
-            receipt += `═══════════════════════════════\n\n`;
-            
-            receipt += `✅ Order received! We'll call you shortly to confirm.\n`;
-            receipt += `Thank you for choosing ನಿಮ್ಮ ಮನೆಯವರಿಗೆ! 🚀`;
-            
-            return receipt;
-        }
-
-        // Preview Order
-        function previewOrder() {
-            const receipt = generateReceipt();
-            if (receipt) {
-                receiptPreview.textContent = receipt;
-                receiptModal.classList.add('active');
-            }
-        }
-
-        // Send to WhatsApp
-        function sendToWhatsApp() {
-            const receipt = generateReceipt();
-            if (!receipt) return;
-            
-            const phoneNumber = '919448167849';
-            const encodedMessage = encodeURIComponent(receipt);
-            const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-            
-            window.open(url, '_blank');
-            
-            // Reset form after sending
-            setTimeout(() => {
-                orderItemsInput.value = '';
-                shopNameInput.value = '';
-                specialInstructionsInput.value = '';
-                orderId = 'NM' + Date.now().toString().slice(-6);
-                showToast('✅ Order sent successfully! We will contact you shortly.', 'success');
-            }, 1000);
-        }
-
-        // Event Listeners
-        getLocationBtn.addEventListener('click', getCurrentLocation);
-        manualLocationBtn.addEventListener('click', enterAddressManually);
-        previewOrderBtn.addEventListener('click', previewOrder);
-        sendWhatsAppBtn.addEventListener('click', sendToWhatsApp);
-        confirmWhatsAppBtn.addEventListener('click', () => {
-            receiptModal.classList.remove('active');
-            sendToWhatsApp();
-        });
-        closeReceiptBtn.addEventListener('click', () => {
-            receiptModal.classList.remove('active');
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            showToast('Welcome to ನಿಮ್ಮಮನೆವರೆಗೆ - Professional Delivery Services', 'success');
         });
 
-        // Close modal when clicking outside
-        receiptModal.addEventListener('click', (e) => {
-            if (e.target === receiptModal) {
-                receiptModal.classList.remove('active');
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', (e) => {
+        // Close modals with Escape key
+        document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                receiptModal.classList.remove('active');
+                closeAddressModal();
+                closeReceipt();
             }
         });
 
-        // Auto-focus on order items input
-        window.addEventListener('load', () => {
-            orderItemsInput.focus();
-            setTimeout(() => {
-                showToast('Welcome to ನಿಮ್ಮ ಮನೆಯವರಿಗೆ! What do you need today?', 'success');
-            }, 500);
-        });
-
-        // Form auto-save
-        let saveTimeout;
-        function autoSave() {
-            clearTimeout(saveTimeout);
-            saveTimeout = setTimeout(() => {
-                localStorage.setItem('namma_kollegala_order', JSON.stringify({
-                    items: orderItemsInput.value,
-                    shop: shopNameInput.value,
-                    instructions: specialInstructionsInput.value
-                }));
-            }, 1000);
-        }
-
-        orderItemsInput.addEventListener('input', autoSave);
-        shopNameInput.addEventListener('input', autoSave);
-        specialInstructionsInput.addEventListener('input', autoSave);
-
-        // Load saved data
-        window.addEventListener('load', () => {
-            const saved = localStorage.getItem('namma_kollegala_order');
-            if (saved) {
-                try {
-                    const data = JSON.parse(saved);
-                    orderItemsInput.value = data.items || '';
-                    shopNameInput.value = data.shop || '';
-                    specialInstructionsInput.value = data.instructions || '';
-                } catch (e) {
-                    // Ignore parse errors
-                }
-            }
-        });
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            if (event.target === addressModal) closeAddressModal();
+            if (event.target === receiptModal) closeReceipt();
+        };
     </script>
 </body>
-      </html>
+         </html>
