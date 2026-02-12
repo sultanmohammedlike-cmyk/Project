@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ನಿಮ್ಮಮನೆವರೆಗೆ - Kollegala's  Local Delivery Service</title>
+    <title>ನಿಮ್ಮಮನೆವರೆಗೆ - Kollegala's Local Delivery Service</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -793,6 +793,125 @@
             font-style: italic;
         }
 
+        /* TIP SECTION - NEW STYLES */
+        .tip-section {
+            background: linear-gradient(135deg, #fef9e7 0%, #fef3e2 100%);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin: 32px 0;
+            border: 2px solid #ffc107;
+            box-shadow: 0 2px 8px rgba(255,193,7,0.1);
+        }
+
+        .tip-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .tip-icon {
+            width: 48px;
+            height: 48px;
+            background: #ff9800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .tip-title {
+            font-weight: 700;
+            color: #b45f06;
+            font-size: 20px;
+        }
+
+        .tip-subtitle {
+            font-size: 14px;
+            color: #7f4f24;
+        }
+
+        .tip-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tip-option {
+            background: white;
+            border: 2px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            padding: 12px 24px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+            flex: 1 1 100px;
+            justify-content: center;
+        }
+
+        .tip-option i {
+            color: #ff9800;
+            font-size: 18px;
+        }
+
+        .tip-option:hover {
+            border-color: #ff9800;
+            background: #fff3e0;
+            transform: translateY(-2px);
+        }
+
+        .tip-option.selected {
+            border-color: #ff9800;
+            background: #fff3e0;
+            box-shadow: 0 2px 8px rgba(255,152,0,0.2);
+        }
+
+        .tip-custom {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tip-custom-input {
+            flex: 1;
+            min-width: 150px;
+            padding: 12px 16px;
+            border: 2px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            font-size: 15px;
+        }
+
+        .tip-custom-input:focus {
+            border-color: #ff9800;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255,152,0,0.1);
+        }
+
+        .tip-total {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px dashed #ffc107;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .tip-amount-display {
+            color: #b45f06;
+            font-size: 24px;
+        }
+
         /* Payment Section */
         .payment-section {
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
@@ -1328,7 +1447,7 @@
     <section class="hero-section">
         <div class="hero-background">
             <!-- Replace 'your-image.jpg' with your actual image file -->
-            <img src="1770392046117.png" alt="Delivery Service Background">
+            <img src="IMG-20260208-WA0003.jpg" alt="Delivery Service Background">
         </div>
         <div class="hero-overlay"></div>
         <div class="container">
@@ -1343,7 +1462,7 @@
     <section class="services-section" id="serviceSelection">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Our  Services</h2>
+                <h2 class="section-title">Our Services</h2>
                 <p class="section-subtitle">Choose from our range of fast delivery solutions tailored for Kollegala residents</p>
             </div>
             
@@ -1513,6 +1632,45 @@
                             <input type="hidden" id="deliveryFareAmount" value="">
                         </div>
                         
+                        <!-- TIP SECTION for Food Delivery -->
+                        <div class="tip-section" id="deliveryTipSection">
+                            <div class="tip-header">
+                                <div class="tip-icon">
+                                    <i class="fas fa-hand-holding-heart"></i>
+                                </div>
+                                <div>
+                                    <h3 class="tip-title">Add a Tip (Optional)</h3>
+                                    <div class="tip-subtitle">If you're happy with our service, you can support our delivery partner!</div>
+                                </div>
+                            </div>
+                            
+                            <div class="tip-options" id="deliveryTipOptions">
+                                <div class="tip-option" onclick="selectTip('delivery', 5)">
+                                    <i class="fas fa-coffee"></i> ₹5
+                                </div>
+                                <div class="tip-option" onclick="selectTip('delivery', 10)">
+                                    <i class="fas fa-snack"></i> ₹10
+                                </div>
+                                <div class="tip-option" onclick="selectTip('delivery', 20)">
+                                    <i class="fas fa-biryani"></i> ₹20
+                                </div>
+                                <div class="tip-option" onclick="selectTip('delivery', 50)">
+                                    <i class="fas fa-gift"></i> ₹50
+                                </div>
+                            </div>
+                            
+                            <div class="tip-custom">
+                                <input type="number" class="tip-custom-input" id="deliveryCustomTip" placeholder="Other amount (₹)" min="1" oninput="customTip('delivery')">
+                                <button type="button" class="btn btn-secondary" onclick="applyCustomTip('delivery')" style="padding:12px 20px;">Apply</button>
+                            </div>
+                            
+                            <div class="tip-total">
+                                <span>💝 Your tip:</span>
+                                <span class="tip-amount-display" id="deliveryTipDisplay">₹0</span>
+                            </div>
+                            <input type="hidden" id="deliveryTipAmount" value="0">
+                        </div>
+                        
                         <div class="fare-section">
                             <div class="fare-header">
                                 <div class="fare-icon">
@@ -1522,7 +1680,7 @@
                             </div>
                             
                             <div class="fare-display">
-                                <p>Your delivery charge:</p>
+                                <p>Delivery charge + Tip</p>
                                 <div class="fare-amount" id="deliveryFareDisplay">—</div>
                                 <div class="fare-disclaimer">
                                     <i class="fas fa-exclamation-triangle"></i>
@@ -1721,6 +1879,45 @@
                             <input type="hidden" id="pickupFareAmount" value="">
                         </div>
                         
+                        <!-- TIP SECTION for Pickup & Drop -->
+                        <div class="tip-section" id="pickupTipSection">
+                            <div class="tip-header">
+                                <div class="tip-icon">
+                                    <i class="fas fa-hand-holding-heart"></i>
+                                </div>
+                                <div>
+                                    <h3 class="tip-title">Add a Tip (Optional)</h3>
+                                    <div class="tip-subtitle">Appreciate our rider's effort with a small token!</div>
+                                </div>
+                            </div>
+                            
+                            <div class="tip-options" id="pickupTipOptions">
+                                <div class="tip-option" onclick="selectTip('pickup', 5)">
+                                    <i class="fas fa-coffee"></i> ₹5
+                                </div>
+                                <div class="tip-option" onclick="selectTip('pickup', 10)">
+                                    <i class="fas fa-snack"></i> ₹10
+                                </div>
+                                <div class="tip-option" onclick="selectTip('pickup', 20)">
+                                    <i class="fas fa-biryani"></i> ₹20
+                                </div>
+                                <div class="tip-option" onclick="selectTip('pickup', 50)">
+                                    <i class="fas fa-gift"></i> ₹50
+                                </div>
+                            </div>
+                            
+                            <div class="tip-custom">
+                                <input type="number" class="tip-custom-input" id="pickupCustomTip" placeholder="Other amount (₹)" min="1" oninput="customTip('pickup')">
+                                <button type="button" class="btn btn-secondary" onclick="applyCustomTip('pickup')" style="padding:12px 20px;">Apply</button>
+                            </div>
+                            
+                            <div class="tip-total">
+                                <span>💝 Your tip:</span>
+                                <span class="tip-amount-display" id="pickupTipDisplay">₹0</span>
+                            </div>
+                            <input type="hidden" id="pickupTipAmount" value="0">
+                        </div>
+                        
                         <div class="fare-section">
                             <div class="fare-header">
                                 <div class="fare-icon">
@@ -1730,7 +1927,7 @@
                             </div>
                             
                             <div class="fare-display">
-                                <p>Your service charge:</p>
+                                <p>Service charge + Tip</p>
                                 <div class="fare-amount" id="pickupFareDisplay">—</div>
                                 <div class="fare-disclaimer">
                                     <i class="fas fa-exclamation-triangle"></i>
@@ -1898,6 +2095,9 @@
             pickupFare: 0,
             deliveryDistance: '',
             deliveryFare: 0,
+            // Tip amounts
+            deliveryTip: 0,
+            pickupTip: 0,
             orderData: null,
             currentForm: null,
             currentLocationCoords: null
@@ -1921,13 +2121,11 @@
             if (service === 'delivery') {
                 deliveryForm.classList.add('active');
                 state.currentForm = 'delivery';
-                state.deliveryFare = 0;
-                document.getElementById('deliveryFareDisplay').textContent = '—';
+                updateDeliveryTotalFare();
             } else {
                 pickupForm.classList.add('active');
                 state.currentForm = 'pickup';
-                state.pickupFare = 0;
-                document.getElementById('pickupFareDisplay').textContent = '—';
+                updatePickupTotalFare();
             }
             
             // Scroll to form
@@ -1944,7 +2142,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Location Handling
+        // Location Handling (unchanged, keep as is)
         function getUserLocation(formType) {
             if (!navigator.geolocation) {
                 showToast('Geolocation is not supported by your browser', 'error');
@@ -1992,14 +2190,12 @@
             try {
                 const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`);
                 const data = await response.json();
-                
                 if (data.display_name) {
                     return data.display_name;
                 }
             } catch (error) {
                 console.error('Geocoding error:', error);
             }
-            
             return `Location at ${lat.toFixed(6)}, ${lng.toFixed(6)}`;
         }
 
@@ -2081,26 +2277,111 @@
                 state.deliveryFare = fare;
                 document.getElementById('deliveryDistance').value = distance;
                 document.getElementById('deliveryFareAmount').value = fare;
-                
-                if (distance === 'less') {
-                    document.getElementById('deliveryFareDisplay').textContent = `₹15* (per km)`;
-                } else {
-                    document.getElementById('deliveryFareDisplay').textContent = `₹30 (fixed)`;
-                }
+                updateDeliveryTotalFare();
             } else {
                 state.pickupDistance = distance;
                 state.pickupFare = fare;
                 document.getElementById('pickupDistance').value = distance;
                 document.getElementById('pickupFareAmount').value = fare;
-                
-                if (distance === 'less') {
-                    document.getElementById('pickupFareDisplay').textContent = `₹15* (per km)`;
-                } else {
-                    document.getElementById('pickupFareDisplay').textContent = `₹30 (fixed)`;
-                }
+                updatePickupTotalFare();
             }
             
             showToast(`Distance option selected`, 'success');
+        }
+
+        // ============== TIP FUNCTIONALITY ==============
+        function selectTip(formType, amount) {
+            // Remove selected class from all tip options
+            const tipOptions = document.querySelectorAll(`#${formType}TipOptions .tip-option`);
+            tipOptions.forEach(opt => opt.classList.remove('selected'));
+            
+            // Add selected to clicked option
+            event.currentTarget.classList.add('selected');
+            
+            // Clear custom input
+            if (formType === 'delivery') {
+                document.getElementById('deliveryCustomTip').value = '';
+                state.deliveryTip = amount;
+                document.getElementById('deliveryTipAmount').value = amount;
+                document.getElementById('deliveryTipDisplay').innerHTML = `₹${amount}`;
+                updateDeliveryTotalFare();
+            } else {
+                document.getElementById('pickupCustomTip').value = '';
+                state.pickupTip = amount;
+                document.getElementById('pickupTipAmount').value = amount;
+                document.getElementById('pickupTipDisplay').innerHTML = `₹${amount}`;
+                updatePickupTotalFare();
+            }
+            showToast(`Tip of ₹${amount} added, thank you!`, 'success');
+        }
+
+        function customTip(formType) {
+            // Just for real-time input, apply is needed to confirm
+            // Remove selections from preset options
+            const tipOptions = document.querySelectorAll(`#${formType}TipOptions .tip-option`);
+            tipOptions.forEach(opt => opt.classList.remove('selected'));
+        }
+
+        function applyCustomTip(formType) {
+            let customVal;
+            if (formType === 'delivery') {
+                customVal = document.getElementById('deliveryCustomTip').value;
+            } else {
+                customVal = document.getElementById('pickupCustomTip').value;
+            }
+            
+            if (!customVal || customVal <= 0) {
+                showToast('Please enter a valid tip amount', 'warning');
+                return;
+            }
+            
+            // Remove selected from preset options
+            const tipOptions = document.querySelectorAll(`#${formType}TipOptions .tip-option`);
+            tipOptions.forEach(opt => opt.classList.remove('selected'));
+            
+            if (formType === 'delivery') {
+                state.deliveryTip = parseInt(customVal);
+                document.getElementById('deliveryTipAmount').value = customVal;
+                document.getElementById('deliveryTipDisplay').innerHTML = `₹${customVal}`;
+                updateDeliveryTotalFare();
+            } else {
+                state.pickupTip = parseInt(customVal);
+                document.getElementById('pickupTipAmount').value = customVal;
+                document.getElementById('pickupTipDisplay').innerHTML = `₹${customVal}`;
+                updatePickupTotalFare();
+            }
+            showToast(`Custom tip of ₹${customVal} added, thank you!`, 'success');
+        }
+
+        // Update total fare including tip
+        function updateDeliveryTotalFare() {
+            const baseFare = state.deliveryFare || 0;
+            const tip = state.deliveryTip || 0;
+            const total = baseFare + tip;
+            if (state.deliveryDistance) {
+                if (state.deliveryDistance === 'less') {
+                    document.getElementById('deliveryFareDisplay').innerHTML = `₹${baseFare}* + ₹${tip} = <span style="color:#1a5fb4;">₹${total}</span> (incl. tip)`;
+                } else {
+                    document.getElementById('deliveryFareDisplay').innerHTML = `₹${baseFare} + ₹${tip} = <span style="color:#1a5fb4;">₹${total}</span> (incl. tip)`;
+                }
+            } else {
+                document.getElementById('deliveryFareDisplay').textContent = '—';
+            }
+        }
+
+        function updatePickupTotalFare() {
+            const baseFare = state.pickupFare || 0;
+            const tip = state.pickupTip || 0;
+            const total = baseFare + tip;
+            if (state.pickupDistance) {
+                if (state.pickupDistance === 'less') {
+                    document.getElementById('pickupFareDisplay').innerHTML = `₹${baseFare}* + ₹${tip} = <span style="color:#1a5fb4;">₹${total}</span> (incl. tip)`;
+                } else {
+                    document.getElementById('pickupFareDisplay').innerHTML = `₹${baseFare} + ₹${tip} = <span style="color:#1a5fb4;">₹${total}</span> (incl. tip)`;
+                }
+            } else {
+                document.getElementById('pickupFareDisplay').textContent = '—';
+            }
         }
 
         // Service Type Selection
@@ -2133,16 +2414,16 @@
 
         // UPI Payment
         function payWithUPI(formType) {
-            const fare = formType === 'delivery' ? state.deliveryFare : state.pickupFare;
+            const fare = formType === 'delivery' ? (state.deliveryFare + state.deliveryTip) : (state.pickupFare + state.pickupTip);
             const distance = formType === 'delivery' ? state.deliveryDistance : state.pickupDistance;
             
-            if (fare === 0) {
+            if ((formType === 'delivery' && state.deliveryFare === 0) || (formType === 'pickup' && state.pickupFare === 0)) {
                 showToast('Please select distance first', 'warning');
                 return false;
             }
             
             const distanceText = distance === 'less' ? '2km or less' : 'Above 2km';
-            const upiLink = `upi://pay?pa=9448167849@paytm&pn=ನಿಮ್ಮಮನೆವರೆಗೆ&am=${fare}&cu=INR&tn=${formType === 'delivery' ? 'Food%20Delivery' : 'Pickup%20Service'}%20Payment%20-${distanceText}`;
+            const upiLink = `upi://pay?pa=9448167849@paytm&pn=ನಿಮ್ಮಮನೆವರೆಗೆ&am=${fare}&cu=INR&tn=${formType === 'delivery' ? 'Food%20Delivery' : 'Pickup%20Service'}%20Payment%20-${distanceText}%20Tip%20incl`;
             window.open(upiLink, '_blank');
             return false;
         }
@@ -2181,6 +2462,7 @@
                     deliveryLocation: document.getElementById('deliveryLocationText').textContent,
                     distance: state.deliveryDistance,
                     fare: state.deliveryFare,
+                    tip: state.deliveryTip || 0,
                     payment: document.querySelector('input[name="deliveryPayment"]:checked').value
                 };
 
@@ -2189,6 +2471,7 @@
                     return;
                 }
 
+                const totalAmount = formData.fare + formData.tip;
                 const locationLink = document.getElementById('deliveryLocationLink').innerHTML;
                 const mapsLink = locationLink.includes('href="') ? locationLink.match(/href="([^"]+)"/)[1] : '';
                 const distanceText = formData.distance === 'less' ? '2 km or less (₹15 per km)' : 'Above 2 km (₹30 fixed)';
@@ -2217,6 +2500,8 @@ ${formData.items}
 💰 *Payment Summary*
 • Distance: ${distanceText}
 • Delivery Charges: ₹${formData.fare}
+• 💝 Tip Amount: ₹${formData.tip}
+• Total Payable: ₹${totalAmount}
 • Payment Method: ${formData.payment === 'cash' ? 'Cash on Delivery' : 'Paid via UPI'}
 • UPI ID: 9448167849@paytm
 
@@ -2227,10 +2512,10 @@ ${formData.items}
 • WhatsApp: +91 94481 67849
 
 ━━━━━━━━━━━━━━━━━━━━━━━
-Thank you for choosing ನಿಮ್ಮಮನೆವರೆಗೆ!
+Thank you for choosing ನಿಮ್ಮಮನೆವರೆಗೆ! We appreciate your tip 💝
 We'll contact you shortly to confirm your order.`;
 
-                state.orderData = { ...formData, serviceType, orderId, timestamp, mapsLink };
+                state.orderData = { ...formData, serviceType, orderId, timestamp, mapsLink, totalAmount };
 
             } else {
                 const formData = {
@@ -2241,6 +2526,7 @@ We'll contact you shortly to confirm your order.`;
                     serviceType: state.serviceType,
                     distance: state.pickupDistance,
                     fare: state.pickupFare,
+                    tip: state.pickupTip || 0,
                     pickupLocation: document.getElementById('pickupLocationText').textContent,
                     payment: document.querySelector('input[name="pickupPayment"]:checked').value
                 };
@@ -2255,6 +2541,7 @@ We'll contact you shortly to confirm your order.`;
                     return;
                 }
 
+                const totalAmount = formData.fare + formData.tip;
                 const locationLink = document.getElementById('pickupLocationLink').innerHTML;
                 const mapsLink = locationLink.includes('href="') ? locationLink.match(/href="([^"]+)"/)[1] : '';
                 const distanceText = formData.distance === 'less' ? '2 km or less (₹15 per km)' : 'Above 2 km (₹30 fixed)';
@@ -2283,6 +2570,8 @@ ${formData.deliveryAddress}
 
 💰 *Payment Summary*
 • Service Charges: ₹${formData.fare}
+• 💝 Tip Amount: ₹${formData.tip}
+• Total Payable: ₹${totalAmount}
 • Payment Method: ${formData.payment === 'cash' ? 'Cash to Rider' : 'Paid via UPI'}
 • UPI ID: 9448167849@paytm
 
@@ -2293,10 +2582,10 @@ ${formData.deliveryAddress}
 • WhatsApp: +91 94481 67849
 
 ━━━━━━━━━━━━━━━━━━━━━━━
-Thank you for choosing ನಿಮ್ಮಮನೆವರೆಗೆ!
+Thank you for choosing ನಿಮ್ಮಮನೆವರೆಗೆ! We appreciate your tip 💝
 We'll contact you shortly to confirm pickup.`;
 
-                state.orderData = { ...formData, serviceType, orderId, timestamp, mapsLink };
+                state.orderData = { ...formData, serviceType, orderId, timestamp, mapsLink, totalAmount };
             }
 
             receiptContent.textContent = receipt;
@@ -2315,16 +2604,12 @@ We'll contact you shortly to confirm pickup.`;
             const message = encodeURIComponent(receiptContent.textContent);
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
             
-            // Open WhatsApp in new tab
             window.open(whatsappUrl, '_blank');
             
-            // Reset form
             resetForm(state.currentForm);
             
-            // Show confirmation
             showToast('Order sent to WhatsApp! We will contact you shortly.', 'success');
             
-            // Close receipt and return to services
             setTimeout(() => {
                 receiptModal.classList.remove('active');
                 showServiceSelection();
@@ -2337,20 +2622,28 @@ We'll contact you shortly to confirm pickup.`;
                 document.getElementById('deliveryLocationDisplay').classList.remove('active');
                 document.getElementById('deliveryLocationLink').classList.add('hidden');
                 document.querySelectorAll('#deliveryDistanceOptions .distance-option').forEach(opt => opt.classList.remove('selected'));
+                document.querySelectorAll('#deliveryTipOptions .tip-option').forEach(opt => opt.classList.remove('selected'));
                 state.deliveryLocation = null;
                 state.deliveryDistance = '';
                 state.deliveryFare = 0;
+                state.deliveryTip = 0;
+                document.getElementById('deliveryTipDisplay').innerHTML = '₹0';
+                document.getElementById('deliveryTipAmount').value = '0';
                 document.getElementById('deliveryFareDisplay').textContent = '—';
             } else {
                 document.getElementById('pickupOrderForm').reset();
                 document.getElementById('pickupLocationDisplay').classList.remove('active');
                 document.getElementById('pickupLocationLink').classList.add('hidden');
                 document.querySelectorAll('#pickupDistanceOptions .distance-option').forEach(opt => opt.classList.remove('selected'));
+                document.querySelectorAll('#pickupTipOptions .tip-option').forEach(opt => opt.classList.remove('selected'));
                 document.querySelectorAll('.service-type-option').forEach(opt => opt.classList.remove('selected'));
                 state.pickupLocation = null;
                 state.serviceType = '';
                 state.pickupDistance = '';
                 state.pickupFare = 0;
+                state.pickupTip = 0;
+                document.getElementById('pickupTipDisplay').innerHTML = '₹0';
+                document.getElementById('pickupTipAmount').value = '0';
                 document.getElementById('pickupFareDisplay').textContent = '—';
                 document.getElementById('serviceType').value = '';
             }
