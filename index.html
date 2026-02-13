@@ -73,7 +73,7 @@
             right: 0;
             z-index: 1000;
             border-bottom: 1px solid var(--border-light);
-            height: 70px;
+            height: 80px; /* increased height for bigger logo */
             display: flex;
             align-items: center;
         }
@@ -100,18 +100,18 @@
 
         .brand-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 22px;
-            font-weight: 700;
+            font-size: 32px; /* BIGGER LOGO TEXT */
+            font-weight: 800;
             color: var(--primary-blue);
-            line-height: 1.2;
-            letter-spacing: -0.3px;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
         }
 
         .brand-subtitle {
-            font-size: 13px;
+            font-size: 14px;
             color: var(--text-gray);
             font-weight: 500;
-            margin-top: 2px;
+            margin-top: 4px;
         }
 
         .contact-header {
@@ -148,7 +148,7 @@
         .hero-section {
             padding: 140px 0 60px;
             position: relative;
-            margin-top: 70px;
+            margin-top: 80px; /* adjusted for taller header */
             overflow: hidden;
         }
 
@@ -634,7 +634,7 @@
             color: var(--text-gray);
         }
 
-        /* Distance Selection Section - 2 Options */
+        /* Distance Selection Section - 2 Options with CORRECT PRICING */
         .distance-section {
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             border-radius: var(--radius-lg);
@@ -793,7 +793,7 @@
             font-style: italic;
         }
 
-        /* TIP SECTION - NEW STYLES */
+        /* TIP SECTION */
         .tip-section {
             background: linear-gradient(135deg, #fef9e7 0%, #fef3e2 100%);
             border-radius: var(--radius-lg);
@@ -1292,7 +1292,7 @@
             }
             
             .brand-title {
-                font-size: 20px;
+                font-size: 28px; /* still bigger on mobile */
             }
             
             .form-grid {
@@ -1361,11 +1361,11 @@
             }
             
             .brand-title {
-                font-size: 18px;
+                font-size: 26px;
             }
             
             .brand-subtitle {
-                font-size: 11px;
+                font-size: 12px;
             }
         }
 
@@ -1418,7 +1418,7 @@
     </style>
 </head>
 <body>
-    <!-- Fixed Header -->
+    <!-- Fixed Header - BIGGER LOGO -->
     <header class="main-header">
         <div class="container">
             <div class="header-content">
@@ -1599,7 +1599,7 @@
                             </div>
                         </div>
                         
-                        <!-- Distance Selection - 2 Options for Delivery -->
+                        <!-- Distance Selection - CORRECT PRICING: <2km = ₹30, >2km = ₹15 per km -->
                         <div class="distance-section">
                             <div class="distance-header">
                                 <div class="distance-icon">
@@ -1609,22 +1609,22 @@
                             </div>
                             
                             <div class="distance-options" id="deliveryDistanceOptions">
-                                <div class="distance-option" onclick="selectDistance('delivery', 'less', 15)">
+                                <div class="distance-option" onclick="selectDistance('delivery', 'less', 30)">
                                     <div class="distance-icon-small">
                                         <i class="fas fa-2"></i>
                                     </div>
                                     <div class="distance-label">2 km or less</div>
-                                    <div class="distance-price">₹15*</div>
-                                    <div class="distance-desc">Per km charge</div>
+                                    <div class="distance-price">₹30</div>
+                                    <div class="distance-desc">Fixed charge</div>
                                 </div>
                                 
-                                <div class="distance-option" onclick="selectDistance('delivery', 'more', 30)">
+                                <div class="distance-option" onclick="selectDistance('delivery', 'more', 15)">
                                     <div class="distance-icon-small">
                                         <i class="fas fa-2-plus"></i>
                                     </div>
                                     <div class="distance-label">Above 2 km</div>
-                                    <div class="distance-price">₹30</div>
-                                    <div class="distance-desc">Fixed charge</div>
+                                    <div class="distance-price">₹15/km</div>
+                                    <div class="distance-desc">Per km charge</div>
                                 </div>
                             </div>
                             
@@ -1846,7 +1846,7 @@
                             <textarea class="form-textarea" id="serviceDetails" placeholder="For Item Transport: Describe the items, size, value, etc. For Person Drop: Number of persons, any special requirements..." rows="3" required></textarea>
                         </div>
                         
-                        <!-- Distance Selection - 2 Options for Pickup -->
+                        <!-- Distance Selection - CORRECT PRICING: <2km = ₹30, >2km = ₹15 per km -->
                         <div class="distance-section">
                             <div class="distance-header">
                                 <div class="distance-icon">
@@ -1856,22 +1856,22 @@
                             </div>
                             
                             <div class="distance-options" id="pickupDistanceOptions">
-                                <div class="distance-option" onclick="selectDistance('pickup', 'less', 15)">
+                                <div class="distance-option" onclick="selectDistance('pickup', 'less', 30)">
                                     <div class="distance-icon-small">
                                         <i class="fas fa-2"></i>
                                     </div>
                                     <div class="distance-label">2 km or less</div>
-                                    <div class="distance-price">₹15*</div>
-                                    <div class="distance-desc">Per km charge</div>
+                                    <div class="distance-price">₹30</div>
+                                    <div class="distance-desc">Fixed charge</div>
                                 </div>
                                 
-                                <div class="distance-option" onclick="selectDistance('pickup', 'more', 30)">
+                                <div class="distance-option" onclick="selectDistance('pickup', 'more', 15)">
                                     <div class="distance-icon-small">
                                         <i class="fas fa-2-plus"></i>
                                     </div>
                                     <div class="distance-label">Above 2 km</div>
-                                    <div class="distance-price">₹30</div>
-                                    <div class="distance-desc">Fixed charge</div>
+                                    <div class="distance-price">₹15/km</div>
+                                    <div class="distance-desc">Per km charge</div>
                                 </div>
                             </div>
                             
@@ -2142,7 +2142,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Location Handling (unchanged, keep as is)
+        // Location Handling (unchanged)
         function getUserLocation(formType) {
             if (!navigator.geolocation) {
                 showToast('Geolocation is not supported by your browser', 'error');
@@ -2263,7 +2263,7 @@
             showToast('Address saved successfully', 'success');
         }
 
-        // Distance Selection - 2 Options
+        // Distance Selection - CORRECT PRICING
         function selectDistance(formType, distance, fare) {
             const options = document.querySelectorAll(`#${formType}DistanceOptions .distance-option`);
             options.forEach(option => option.classList.remove('selected'));
@@ -2360,9 +2360,9 @@
             const total = baseFare + tip;
             if (state.deliveryDistance) {
                 if (state.deliveryDistance === 'less') {
-                    document.getElementById('deliveryFareDisplay').innerHTML = `₹${baseFare}* + ₹${tip} = <span style="color:#1a5fb4;">₹${total}</span> (incl. tip)`;
-                } else {
                     document.getElementById('deliveryFareDisplay').innerHTML = `₹${baseFare} + ₹${tip} = <span style="color:#1a5fb4;">₹${total}</span> (incl. tip)`;
+                } else {
+                    document.getElementById('deliveryFareDisplay').innerHTML = `₹${baseFare}/km + ₹${tip} = <span style="color:#1a5fb4;">₹${total}*</span> (incl. tip)`;
                 }
             } else {
                 document.getElementById('deliveryFareDisplay').textContent = '—';
@@ -2375,9 +2375,9 @@
             const total = baseFare + tip;
             if (state.pickupDistance) {
                 if (state.pickupDistance === 'less') {
-                    document.getElementById('pickupFareDisplay').innerHTML = `₹${baseFare}* + ₹${tip} = <span style="color:#1a5fb4;">₹${total}</span> (incl. tip)`;
-                } else {
                     document.getElementById('pickupFareDisplay').innerHTML = `₹${baseFare} + ₹${tip} = <span style="color:#1a5fb4;">₹${total}</span> (incl. tip)`;
+                } else {
+                    document.getElementById('pickupFareDisplay').innerHTML = `₹${baseFare}/km + ₹${tip} = <span style="color:#1a5fb4;">₹${total}*</span> (incl. tip)`;
                 }
             } else {
                 document.getElementById('pickupFareDisplay').textContent = '—';
@@ -2422,7 +2422,7 @@
                 return false;
             }
             
-            const distanceText = distance === 'less' ? '2km or less' : 'Above 2km';
+            const distanceText = distance === 'less' ? '2km or less (₹30)' : 'Above 2km (₹15/km)';
             const upiLink = `upi://pay?pa=9448167849@paytm&pn=ನಿಮ್ಮಮನೆವರೆಗೆ&am=${fare}&cu=INR&tn=${formType === 'delivery' ? 'Food%20Delivery' : 'Pickup%20Service'}%20Payment%20-${distanceText}%20Tip%20incl`;
             window.open(upiLink, '_blank');
             return false;
@@ -2474,7 +2474,7 @@
                 const totalAmount = formData.fare + formData.tip;
                 const locationLink = document.getElementById('deliveryLocationLink').innerHTML;
                 const mapsLink = locationLink.includes('href="') ? locationLink.match(/href="([^"]+)"/)[1] : '';
-                const distanceText = formData.distance === 'less' ? '2 km or less (₹15 per km)' : 'Above 2 km (₹30 fixed)';
+                const distanceText = formData.distance === 'less' ? '2 km or less (₹30 fixed)' : 'Above 2 km (₹15 per km)';
 
                 receipt = `🍽️ *FOOD DELIVERY ORDER - ನಿಮ್ಮಮನೆವರೆಗೆ*
 ━━━━━━━━━━━━━━━━━━━━━━━
@@ -2499,7 +2499,7 @@ ${formData.items}
 
 💰 *Payment Summary*
 • Distance: ${distanceText}
-• Delivery Charges: ₹${formData.fare}
+• Delivery Charges: ₹${formData.fare}${formData.distance==='more'?'/km':''}
 • 💝 Tip Amount: ₹${formData.tip}
 • Total Payable: ₹${totalAmount}
 • Payment Method: ${formData.payment === 'cash' ? 'Cash on Delivery' : 'Paid via UPI'}
@@ -2544,7 +2544,7 @@ We'll contact you shortly to confirm your order.`;
                 const totalAmount = formData.fare + formData.tip;
                 const locationLink = document.getElementById('pickupLocationLink').innerHTML;
                 const mapsLink = locationLink.includes('href="') ? locationLink.match(/href="([^"]+)"/)[1] : '';
-                const distanceText = formData.distance === 'less' ? '2 km or less (₹15 per km)' : 'Above 2 km (₹30 fixed)';
+                const distanceText = formData.distance === 'less' ? '2 km or less (₹30 fixed)' : 'Above 2 km (₹15 per km)';
 
                 receipt = `📦 *PICKUP & DELIVERY SERVICE - ನಿಮ್ಮಮನೆವರೆಗೆ*
 ━━━━━━━━━━━━━━━━━━━━━━━
@@ -2569,7 +2569,7 @@ ${formData.deliveryAddress}
 • Details: ${formData.serviceDetails}
 
 💰 *Payment Summary*
-• Service Charges: ₹${formData.fare}
+• Service Charges: ₹${formData.fare}${formData.distance==='more'?'/km':''}
 • 💝 Tip Amount: ₹${formData.tip}
 • Total Payable: ₹${totalAmount}
 • Payment Method: ${formData.payment === 'cash' ? 'Cash to Rider' : 'Paid via UPI'}
