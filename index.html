@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Outfit:wght@400;500;600;700;800&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ----- RESET & BASE (original theme preserved) ----- */
+        /* ----- RESET & BASE ----- */
         * {
             margin: 0;
             padding: 0;
@@ -51,7 +51,7 @@
             line-height: 1.6;
         }
 
-        /* ----- SPLASH SCREEN (logo image 1.6s) ----- */
+        /* ----- SPLASH SCREEN ----- */
         .splash-screen {
             position: fixed;
             top: 0;
@@ -134,7 +134,7 @@
             opacity: 1;
         }
 
-        /* ----- BIGGER NAV WITH LARGE LOGO (enhanced) ----- */
+        /* ----- HEADER: EXTRA BIG LOGO (border removed, size 220px) ----- */
         .main-header {
             background: rgba(255, 252, 245, 0.96);
             backdrop-filter: blur(14px);
@@ -143,7 +143,7 @@
             top: 0;
             z-index: 1000;
             border-bottom: 3px solid var(--primary-blue);
-            padding: 12px 0;
+            padding: 8px 0;
         }
         .container {
             max-width: 1300px;
@@ -163,16 +163,16 @@
             gap: 20px;
             text-decoration: none;
         }
-        /* BIGGER VISIBLE LOGO */
+        /* LOGO - NO BORDER, EXTRA LARGE 220px */
         .brand-logo-img {
-            width: 100px;
-            height: 100px;
+            width: 220px;
+            height: 220px;
             object-fit: contain;
             background: white;
             border-radius: 50%;
-            padding: 8px;
+            padding: 14px;
             box-shadow: var(--shadow-lg);
-            border: 2px solid var(--primary-blue);
+            border: none;
             transition: transform 0.2s ease;
         }
         .brand-logo-img:hover {
@@ -198,28 +198,40 @@
         }
         .contact-header {
             display: flex;
-            gap: 20px;
+            gap: 30px;
         }
+        /* BIG PHONE & WHATSAPP ICONS */
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
             background: var(--primary-light);
-            padding: 10px 24px;
-            border-radius: 40px;
-            font-weight: 600;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.4rem;
             color: var(--primary-dark);
             text-decoration: none;
             transition: var(--transition);
-            border: 1px solid var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+            box-shadow: var(--shadow-md);
+        }
+        .contact-item i {
+            font-size: 2.2rem;
+            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+        }
+        .contact-item span {
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
         }
         .contact-item:hover {
             background: var(--primary-blue);
             color: white;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            border-color: white;
         }
 
-        /* ----- HERO VIDEO BACKGROUND (original) + MODIFICATIONS FOR STATIC IMAGE MODE ----- */
+        /* ----- HERO VIDEO SECTION ----- */
         .hero-video-section {
             position: relative;
             width: 100%;
@@ -231,7 +243,6 @@
             box-shadow: var(--shadow-xl);
             transition: height 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
-        /* medium rectangle mode when service is active */
         .hero-video-section.medium-rectangle {
             height: 380px;
             min-height: 320px;
@@ -299,7 +310,7 @@
             font-weight: 500;
         }
 
-        /* ----- SERVICES SECTION (images unchanged) ----- */
+        /* ----- SERVICES SECTION ----- */
         .services-section {
             padding: 80px 0 60px;
         }
@@ -390,7 +401,7 @@
             transform: scale(0.97);
         }
 
-        /* ----- FORMS (original untouched) ----- */
+        /* ----- FORMS (pricing chart, no online payment) ----- */
         .form-container { display: none; margin: 50px 0 70px; }
         .form-container.active { display: block; animation: fadeSlide 0.35s; }
         @keyframes fadeSlide { from { opacity:0; transform:translateY(20px);} to { opacity:1; transform:translateY(0);} }
@@ -407,12 +418,44 @@
         .btn-secondary { background: white; color: var(--primary-blue); border: 2px solid var(--primary-blue); }
         .btn-submit { background: var(--secondary-green); color: white; }
         .location-section, .distance-section, .tip-section, .payment-section, .fare-section { background: var(--primary-light); border-radius: var(--radius-lg); padding: 24px; margin: 28px 0; border: 1px solid #cce4ff; }
-        .distance-option { background: white; border-radius: var(--radius-md); padding: 18px; cursor: pointer; border: 2px solid var(--border-light); transition: var(--transition); text-align: center; }
-        .distance-option.selected { border-color: var(--primary-blue); background: #eef4ff; }
+        .price-chart {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+            border: 1px solid var(--primary-blue);
+        }
+        .price-chart h4 {
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .chart-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 12px;
+            border-bottom: 1px dashed var(--border-light);
+            font-weight: 500;
+        }
+        .chart-row:last-child { border-bottom: none; }
+        .distance-input-wrapper {
+            margin-top: 16px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
         .tip-option { background: white; border-radius: 40px; padding: 8px 20px; cursor: pointer; border: 1px solid var(--border-medium); transition: 0.2s; }
         .tip-option.selected { background: var(--primary-blue); color: white; border-color: var(--primary-blue); }
-        .upi-payment { display: none; margin-top: 20px; }
-        .upi-payment.active { display: block; }
+        .payment-cash-only {
+            background: #eef2ff;
+            padding: 14px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-align: center;
+        }
         .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; z-index: 2000; opacity: 0; visibility: hidden; transition: 0.25s; }
         .modal.active { opacity: 1; visibility: visible; }
         .modal-content { background: white; border-radius: var(--radius-xl); max-width: 500px; width: 90%; max-height: 90vh; overflow-y: auto; }
@@ -421,19 +464,45 @@
         .toast { position: fixed; bottom: 25px; right: 25px; background: #1f2937; color: white; padding: 14px 24px; border-radius: 50px; z-index: 3000; transform: translateX(150%); transition: 0.3s; }
         .toast.show { transform: translateX(0); }
         .main-footer { background: var(--text-dark); color: #ddd; padding: 40px 0; text-align: center; margin-top: 70px; border-top: 4px solid var(--primary-blue); }
+        .develop4s-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #2d3e50, #1a2a3a);
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            margin: 30px auto 20px;
+            transition: 0.25s;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .develop4s-btn:hover {
+            transform: translateY(-3px);
+            background: #0f2b3b;
+            color: #ffde9c;
+        }
+        /* RESPONSIVE: scale logo down on smaller screens */
         @media (max-width: 800px) {
             .brand-title { font-size: 26px; }
-            .brand-logo-img { width: 72px; height: 72px; }
+            .brand-logo-img { width: 140px; height: 140px; }
             .hero-title { font-size: 38px; }
             .services-grid { gap: 28px; }
-            .contact-header .contact-item span { display: none; }
-            .contact-item { padding: 8px 18px; }
+            .contact-item { padding: 10px 20px; }
+            .contact-item i { font-size: 1.8rem; }
+            .contact-item span { font-size: 1rem; display: inline; }
+            .contact-header .contact-item span { display: inline; }
+            .contact-header { gap: 16px; }
             .hero-video-section.medium-rectangle { height: 300px; }
         }
         @media (max-width: 560px) {
             .hero-title { font-size: 32px; }
             .section-title { font-size: 30px; }
             .service-img { height: 190px; }
+            .brand-logo-img { width: 110px; height: 110px; }
+            .contact-item i { font-size: 1.5rem; }
+            .contact-item span { font-size: 0.85rem; }
+            .contact-item { padding: 6px 14px; }
         }
         .hidden { display: none; }
         .location-display.active { background: white; border-radius: var(--radius-md); padding: 12px; margin-top: 12px; }
@@ -442,12 +511,12 @@
 </head>
 <body>
 
-<!-- SPLASH SCREEN: Logo image for 1.6 seconds -->
+<!-- SPLASH SCREEN -->
 <div class="splash-screen" id="splashScreen">
     <img class="splash-logo" src="IMG-20260327-WA0000.jpg" alt="Brand Logo">
 </div>
 
-<!-- VIDEO PRELOADER (8 seconds) -->
+<!-- VIDEO PRELOADER -->
 <div class="video-preloader" id="videoPreloader">
     <video id="introVideo" class="intro-video" muted playsinline>
         <source src="VID-20260404-WA0001.mp4" type="video/mp4">
@@ -455,15 +524,13 @@
     <div class="video-overlay-text">⚡ ನಿಮ್ಮ ಮನೆವರೆಗೆ ⚡ anything anywhere, through out namma kollegala</div>
 </div>
 
-<!-- MAIN WEBSITE CONTENT -->
+<!-- MAIN WEBSITE -->
 <div class="main-website" id="mainWebsite">
-    <!-- BIGGER NAV with LARGE LOGO -->
     <header class="main-header">
         <div class="container">
             <div class="header-content">
                 <a href="#" class="logo-section" onclick="showServiceSelection(); return false;">
-                    <img src="IMG-20260327-WA0000.jpg" 
-                         alt="Logo" class="brand-logo-img">
+                    <img src="IMG-20260327-WA0000.jpg" alt="Logo" class="brand-logo-img">
                     <div class="brand-text">
                         <div class="brand-title">ನಿಮ್ಮಮನೆವರೆಗೆ</div>
                         <div class="brand-subtitle">Kollegala's Delivery Partner</div>
@@ -477,7 +544,7 @@
         </div>
     </header>
 
-    <!-- HERO VIDEO BACKGROUND (dynamically replaced by image when service opened) -->
+    <!-- HERO SECTION -->
     <section class="hero-video-section" id="heroSection">
         <video class="hero-background-video" id="heroBgVideo" autoplay loop muted playsinline>
             <source src="VID-20260327-WA0004.mp4" type="video/mp4">
@@ -489,7 +556,7 @@
         </div>
     </section>
 
-    <!-- SERVICE SELECTION (cards with images) -->
+    <!-- SERVICE SELECTION -->
     <section class="services-section" id="serviceSelection">
         <div class="container">
             <div class="section-header">
@@ -497,7 +564,6 @@
                 <p style="margin-top: 16px; color: #4b5563;">Choose what you need — we deliver happiness</p>
             </div>
             <div class="services-grid">
-                <!-- Food Delivery Card with Image -->
                 <div class="service-card">
                     <img class="service-img" src="IMG-20260404-WA0011.jpg" alt="food">
                     <div class="service-body">
@@ -506,7 +572,6 @@
                         <button class="service-cta" onclick="showService('delivery')"><i class="fas fa-shopping-bag"></i> Order Now</button>
                     </div>
                 </div>
-                <!-- Pickup & Drop Card with Image -->
                 <div class="service-card">
                     <img class="service-img" src="IMG-20260404-WA0009.jpg" alt="Pickup and drop">
                     <div class="service-body">
@@ -519,7 +584,7 @@
         </div>
     </section>
 
-    <!-- DELIVERY FORM (dynamic, original logic preserved) -->
+    <!-- DELIVERY FORM -->
     <div class="container">
         <div class="form-container" id="deliveryForm">
             <div class="form-card"><div class="form-header"><h2 class="form-title"><i class="fas fa-utensils"></i> Food Delivery Order</h2><p>Tell us what you crave</p></div>
@@ -527,13 +592,28 @@
             <div class="location-section"><div class="location-header"><i class="fas fa-map-marker-alt"></i> <strong>Delivery Address</strong></div><div class="location-actions" style="display:flex; gap:12px; margin:12px 0;"><button type="button" class="btn btn-primary" onclick="getUserLocation('delivery')"><i class="fas fa-location-crosshairs"></i> Use My Location</button><button type="button" class="btn btn-secondary" onclick="showAddressModal('delivery')">Enter Address</button></div><div class="location-display" id="deliveryLocationDisplay"><div id="deliveryLocationText">Not set</div><div id="deliveryLocationLink" class="hidden"></div></div></div>
             <div class="form-grid"><input type="text" id="deliveryOutlet" placeholder="Shop/Outlet Name" class="form-input" required><input type="text" id="deliveryShopLocation" placeholder="Shop Location" class="form-input" required></div>
             <textarea id="deliveryItems" placeholder="Order details: item names, quantity, special instructions" rows="4" class="form-textarea" required></textarea>
-            <div class="distance-section"><h3><i class="fas fa-road"></i> Select Distance</h3><div class="distance-options" id="deliveryDistanceOptions" style="display:flex; gap:16px; margin-top:12px;"><div class="distance-option" onclick="selectDistance('delivery', 'less', 30)"><strong>2 km or less</strong><div>₹30 fixed</div></div><div class="distance-option" onclick="selectDistance('delivery', 'more', 15)"><strong>Above 2 km</strong><div>₹15/km</div></div></div><input type="hidden" id="deliveryDistance"><input type="hidden" id="deliveryFareAmount"></div>
+            <div class="distance-section">
+                <h3><i class="fas fa-chart-line"></i> Delivery Pricing Chart</h3>
+                <div class="price-chart">
+                    <h4>💰 Fair & Transparent Rates</h4>
+                    <div class="chart-row"><span>📦 Up to 2 km</span><span>₹30 (fixed)</span></div>
+                    <div class="chart-row"><span>🚚 Beyond 2 km</span><span>₹30 + (extra km × ₹15)</span></div>
+                    <div class="chart-row"><span>✨ Example: 4 km → ₹30 + 2×15 = ₹60</span></div>
+                </div>
+                <div class="distance-input-wrapper">
+                    <label style="font-weight:600;">📏 Total distance (km):</label>
+                    <input type="number" id="deliveryDistanceKm" step="0.1" min="0" value="2" class="form-input" style="width:140px;">
+                    <span class="text-gray">(approx. from shop to your door)</span>
+                </div>
+                <input type="hidden" id="deliveryFareAmount">
+            </div>
             <div class="tip-section"><h3><i class="fas fa-hand-holding-heart"></i> Add a Tip (Optional)</h3><div class="tip-options" id="deliveryTipOptions" style="display:flex; gap:12px; flex-wrap:wrap;"><div class="tip-option" onclick="selectTip('delivery',5)">₹5</div><div class="tip-option" onclick="selectTip('delivery',10)">₹10</div><div class="tip-option" onclick="selectTip('delivery',20)">₹20</div><div class="tip-option" onclick="selectTip('delivery',50)">₹50</div></div><div class="tip-custom" style="margin-top:12px;"><input type="number" id="deliveryCustomTip" placeholder="Custom amount" class="form-input" style="width:auto;"><button type="button" class="btn btn-secondary" onclick="applyCustomTip('delivery')">Apply</button></div><div class="tip-total" style="margin-top:12px;"><strong>Your tip:</strong> <span id="deliveryTipDisplay">₹0</span></div><input type="hidden" id="deliveryTipAmount" value="0"></div>
             <div class="fare-section"><h3>Delivery Charges</h3><div class="fare-amount" id="deliveryFareDisplay">—</div><small>After 8PM, rates may vary slightly</small></div>
-            <div class="payment-section"><h3>Payment Method</h3><div class="payment-options"><div class="payment-option" onclick="selectPayment('delivery','cash')"><input type="radio" name="deliveryPayment" value="cash" checked> Cash on Delivery</div><div class="payment-option" onclick="selectPayment('delivery','upi')"><input type="radio" name="deliveryPayment" value="upi"> Pay via UPI</div></div><div class="upi-payment" id="deliveryUpiPayment"><a href="#" class="btn btn-primary" onclick="payWithUPI('delivery'); return false;">💳 Pay Now (UPI)</a></div></div>
+            <div class="payment-section"><h3>Payment Method</h3><div class="payment-cash-only"><i class="fas fa-money-bill-wave"></i> Cash on Delivery (Pay to rider)</div></div>
             <div class="form-actions" style="display:flex; gap:16px; margin-top:28px;"><button type="button" class="btn btn-back" onclick="showServiceSelection()">← Back</button><button type="submit" class="btn btn-submit">Submit Order</button></div></form></div></div>
         </div>
 
+        <!-- PICKUP FORM -->
         <div class="form-container" id="pickupForm">
             <div class="form-card"><div class="form-header"><h2 class="form-title"><i class="fas fa-boxes-packing"></i> Pickup & Drop Service</h2></div>
             <div class="form-content"><form id="pickupOrderForm"><div class="form-grid"><input type="text" id="pickupName" placeholder="Full Name" class="form-input" required><input type="tel" id="pickupPhone" placeholder="Mobile Number" class="form-input" required></div>
@@ -541,10 +621,22 @@
             <input type="text" id="deliveryAddress" placeholder="Delivery Address" class="form-input" required>
             <div class="service-type-section"><h3>Service Type</h3><div class="service-type-options" style="display:flex; gap:16px;"><div class="service-type-option btn-secondary" onclick="selectServiceType('item')">📦 Item Transport</div><div class="service-type-option btn-secondary" onclick="selectServiceType('person')">👤 Person Drop</div></div><input type="hidden" id="serviceType"></div>
             <textarea id="serviceDetails" placeholder="Describe items / persons & special requests" rows="3" class="form-textarea" required></textarea>
-            <div class="distance-section"><h3><i class="fas fa-road"></i> Select Distance</h3><div class="distance-options" id="pickupDistanceOptions" style="display:flex; gap:16px;"><div class="distance-option" onclick="selectDistance('pickup', 'less', 30)">2km or less ₹30</div><div class="distance-option" onclick="selectDistance('pickup', 'more', 15)">Above 2km ₹15/km</div></div><input type="hidden" id="pickupDistance"><input type="hidden" id="pickupFareAmount"></div>
+            <div class="distance-section">
+                <h3><i class="fas fa-chart-line"></i> Pricing Chart (Pickup & Drop)</h3>
+                <div class="price-chart">
+                    <h4>💰 Standard Rates</h4>
+                    <div class="chart-row"><span>📍 Up to 2 km</span><span>₹30 fixed</span></div>
+                    <div class="chart-row"><span>🛣️ Beyond 2 km</span><span>₹30 + (extra km × ₹15)</span></div>
+                </div>
+                <div class="distance-input-wrapper">
+                    <label style="font-weight:600;">📏 Travel distance (km):</label>
+                    <input type="number" id="pickupDistanceKm" step="0.1" min="0" value="2" class="form-input" style="width:140px;">
+                </div>
+                <input type="hidden" id="pickupFareAmount">
+            </div>
             <div class="tip-section"><h3>💝 Tip (Optional)</h3><div class="tip-options" style="display:flex; gap:12px; flex-wrap:wrap;"><div class="tip-option" onclick="selectTip('pickup',5)">₹5</div><div class="tip-option" onclick="selectTip('pickup',10)">₹10</div><div class="tip-option" onclick="selectTip('pickup',20)">₹20</div><div class="tip-option" onclick="selectTip('pickup',50)">₹50</div></div><div><input type="number" id="pickupCustomTip" placeholder="Custom tip" class="form-input" style="width:140px;"><button type="button" class="btn btn-secondary" onclick="applyCustomTip('pickup')">Apply</button></div><span id="pickupTipDisplay">₹0</span><input type="hidden" id="pickupTipAmount"></div>
             <div class="fare-section"><h3>Service Charges</h3><div class="fare-amount" id="pickupFareDisplay">—</div></div>
-            <div class="payment-section"><h3>Payment</h3><div class="payment-options"><div class="payment-option" onclick="selectPayment('pickup','cash')"><input type="radio" name="pickupPayment" value="cash" checked> Cash to Rider</div><div class="payment-option" onclick="selectPayment('pickup','upi')"><input type="radio" name="pickupPayment" value="upi"> Pay via UPI</div></div><div class="upi-payment" id="pickupUpiPayment"><a href="#" class="btn btn-primary" onclick="payWithUPI('pickup'); return false;">UPI Payment</a></div></div>
+            <div class="payment-section"><h3>Payment</h3><div class="payment-cash-only"><i class="fas fa-hand-holding-usd"></i> Cash to Rider (No online payment)</div></div>
             <div class="form-actions"><button type="button" class="btn btn-back" onclick="showServiceSelection()">Back</button><button type="submit" class="btn btn-submit">Schedule</button></div></form></div></div>
         </div>
     </div>
@@ -553,11 +645,17 @@
     <div class="modal" id="addressModal"><div class="modal-content"><div class="modal-header"><h3>Enter Address</h3><button class="modal-close" onclick="closeAddressModal()">✖</button></div><div class="modal-body"><textarea id="manualAddress" rows="3" class="form-textarea" placeholder="Full address with landmark"></textarea><input type="text" id="mapsLink" placeholder="Google Maps link (optional)" class="form-input"><button class="btn btn-primary" onclick="saveManualAddress()">Save Address</button></div></div></div>
     <div class="modal" id="receiptModal"><div class="modal-content"><div class="modal-header"><h3>Order Confirmation</h3><button class="modal-close" onclick="closeReceipt()">✖</button></div><div class="modal-body"><pre id="receiptContent" class="receipt"></pre><button class="btn btn-submit" onclick="sendToWhatsApp()"><i class="fab fa-whatsapp"></i> Send to WhatsApp</button></div></div></div>
     <div class="toast" id="toast"></div>
+    
+    <!-- DEVELOP4S HUB LINK -->
+    <div style="text-align: center; margin: 20px 0 0px;">
+        <a href="https://develop4shub.com" target="_blank" class="develop4s-btn"><i class="fas fa-code-branch"></i> Visit Develop4s Hub</a>
+    </div>
+    
     <footer class="main-footer"><div class="container">© 2026 ನಿಮ್ಮಮನೆವರೆಗೆ – Premium Delivery, Kollegala. Classic & Reliable.</div></footer>
 </div>
 
 <script>
-    // ----- Splash + Video Preloader logic (unchanged) -----
+    // Splash + Video Preloader
     const splash = document.getElementById('splashScreen');
     const videoPreloader = document.getElementById('videoPreloader');
     const introVideo = document.getElementById('introVideo');
@@ -579,115 +677,123 @@
         }, 200);
     }, 1600);
 
-    // ----- Application State (preserved) -----
-    const state = { deliveryFare:0, pickupFare:0, deliveryDistance:'', pickupDistance:'', deliveryTip:0, pickupTip:0, deliveryLocation:null, pickupLocation:null, serviceType:'', currentForm:'' };
+    // State & Helpers
+    const state = { deliveryFare:0, pickupFare:0, deliveryTip:0, pickupTip:0, deliveryLocation:null, pickupLocation:null, serviceType:'', currentForm:'' };
     
-    // ----- HERO VIDEO / IMAGE SWITCH LOGIC (remove video, put medium rectangle image of choice) -----
+    function computeFareFromKm(km) {
+        if (isNaN(km) || km <= 0) return 0;
+        if (km <= 2) return 30;
+        return 30 + (km - 2) * 15;
+    }
+    
+    function updateDeliveryFare() {
+        let km = parseFloat(document.getElementById('deliveryDistanceKm')?.value) || 0;
+        state.deliveryFare = computeFareFromKm(km);
+        updateDeliveryTotalFare();
+    }
+    function updatePickupFare() {
+        let km = parseFloat(document.getElementById('pickupDistanceKm')?.value) || 0;
+        state.pickupFare = computeFareFromKm(km);
+        updatePickupTotalFare();
+    }
+    function updateDeliveryTotalFare() { let total = state.deliveryFare + state.deliveryTip; document.getElementById('deliveryFareDisplay').innerHTML = total ? `₹${Math.round(total)}` : '—'; }
+    function updatePickupTotalFare() { let total = state.pickupFare + state.pickupTip; document.getElementById('pickupFareDisplay').innerHTML = total ? `₹${Math.round(total)}` : '—'; }
+    
+    function selectTip(form, amt) {
+        if(form === 'delivery') { state.deliveryTip = amt; document.getElementById('deliveryTipDisplay').innerText = `₹${amt}`; updateDeliveryTotalFare(); }
+        else { state.pickupTip = amt; document.getElementById('pickupTipDisplay').innerText = `₹${amt}`; updatePickupTotalFare(); }
+        showToast(`Tip ₹${amt} added`);
+    }
+    function applyCustomTip(form) {
+        let inp = form === 'delivery' ? document.getElementById('deliveryCustomTip') : document.getElementById('pickupCustomTip');
+        let val = parseInt(inp.value);
+        if(val > 0) {
+            if(form === 'delivery') { state.deliveryTip = val; document.getElementById('deliveryTipDisplay').innerText = `₹${val}`; updateDeliveryTotalFare(); }
+            else { state.pickupTip = val; document.getElementById('pickupTipDisplay').innerText = `₹${val}`; updatePickupTotalFare(); }
+            showToast(`Custom tip ₹${val} applied`);
+        } else showToast('Enter valid amount','warning');
+    }
+    function selectServiceType(type) { state.serviceType = type; document.querySelectorAll('.service-type-option').forEach(o=>o.classList.remove('selected')); event.currentTarget.classList.add('selected'); document.getElementById('serviceType').value = type; }
+    
+    function getUserLocation(f) { if(!navigator.geolocation) return; navigator.geolocation.getCurrentPosition(pos=>{ let addr=`Lat:${pos.coords.latitude.toFixed(5)},Lng:${pos.coords.longitude.toFixed(5)}`; let mapLink=`https://maps.google.com/?q=${pos.coords.latitude},${pos.coords.longitude}`; if(f==='delivery'){ state.deliveryLocation={lat:pos.coords.latitude,lng:pos.coords.longitude}; document.getElementById('deliveryLocationText').innerText=addr; let linkDiv=document.getElementById('deliveryLocationLink'); linkDiv.innerHTML=`<a href='${mapLink}' target='_blank'>📍 View Map</a>`; linkDiv.classList.remove('hidden'); document.getElementById('deliveryLocationDisplay').classList.add('active'); } else { state.pickupLocation={lat:pos.coords.latitude,lng:pos.coords.longitude}; document.getElementById('pickupLocationText').innerText=addr; let linkDiv=document.getElementById('pickupLocationLink'); linkDiv.innerHTML=`<a href='${mapLink}' target='_blank'>📍 View Map</a>`; linkDiv.classList.remove('hidden'); document.getElementById('pickupLocationDisplay').classList.add('active'); } showToast('Location captured'); }); }
+    function showAddressModal(f) { state.currentForm = f; document.getElementById('addressModal').classList.add('active'); }
+    function closeAddressModal() { document.getElementById('addressModal').classList.remove('active'); }
+    function saveManualAddress() { let addr = document.getElementById('manualAddress').value; if(!addr) return; let maps = document.getElementById('mapsLink').value; if(state.currentForm === 'delivery'){ document.getElementById('deliveryLocationText').innerText = addr; if(maps) document.getElementById('deliveryLocationLink').innerHTML = `<a href='${maps}' target='_blank'>📍 Map</a>`; document.getElementById('deliveryLocationDisplay').classList.add('active'); } else { document.getElementById('pickupLocationText').innerText = addr; if(maps) document.getElementById('pickupLocationLink').innerHTML = `<a href='${maps}' target='_blank'>📍 Map</a>`; document.getElementById('pickupLocationDisplay').classList.add('active'); } closeAddressModal(); }
+    
+    function generateReceipt(service) {
+        let orderId = 'ORD'+Date.now(); let receipt = '';
+        if(service === 'delivery') {
+            let name = document.getElementById('deliveryName').value;
+            let phone = document.getElementById('deliveryPhone').value;
+            let outlet = document.getElementById('deliveryOutlet').value;
+            let items = document.getElementById('deliveryItems').value;
+            let total = state.deliveryFare + state.deliveryTip;
+            receipt = `🍽️ FOOD ORDER - ನಿಮ್ಮಮನೆವರೆಗೆ\nID:${orderId}\n${name} | ${phone}\nOutlet:${outlet}\nItems:${items}\nDelivery Fare: ₹${state.deliveryFare}\nTip: ₹${state.deliveryTip}\nTotal: ₹${total}\nPayment: Cash on Delivery\nThank you!`;
+        } else {
+            let name = document.getElementById('pickupName').value;
+            let phone = document.getElementById('pickupPhone').value;
+            let delAddr = document.getElementById('deliveryAddress').value;
+            let total = state.pickupFare + state.pickupTip;
+            receipt = `📦 PICKUP & DROP\nID:${orderId}\n${name} | ${phone}\nDelivery Address:${delAddr}\nService:${state.serviceType}\nFare: ₹${state.pickupFare}\nTip: ₹${state.pickupTip}\nTotal: ₹${total}\nPayment: Cash to Rider\nWe will contact you.`;
+        }
+        document.getElementById('receiptContent').innerText = receipt;
+        document.getElementById('receiptModal').classList.add('active');
+    }
+    function closeReceipt() { document.getElementById('receiptModal').classList.remove('active'); }
+    function sendToWhatsApp() { let msg = encodeURIComponent(document.getElementById('receiptContent').innerText); window.open(`https://wa.me/919448167849?text=${msg}`,'_blank'); showToast('Order sent! We will confirm.'); setTimeout(()=>{ closeReceipt(); showServiceSelection(); },1500); }
+    function showToast(msg) { let t=document.getElementById('toast'); t.innerText=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3000); }
+    
+    // Hero switching
     function setHeroToServiceImage(serviceType) {
         const heroSection = document.getElementById('heroSection');
         const videoElem = document.getElementById('heroBgVideo');
-        // remove any existing static image to avoid duplicates
         const existingImageDiv = document.querySelector('.hero-static-image');
         if(existingImageDiv) existingImageDiv.remove();
-        
-        // create image container
-        const imgContainer = document.createElement('div');
-        imgContainer.className = 'hero-static-image';
+        const imgContainer = document.createElement('div'); imgContainer.className = 'hero-static-image';
         const img = document.createElement('img');
-        // choose high-quality image of my choice: food delivery / pickup & drop relevant
-        if (serviceType === 'delivery') {
-            img.src = 'IMG-20260327-WA0000.jpg';
-            img.alt = 'Food Delivery Service';
-        } else {
-            img.src = 'IMG-20260327-WA0000.jpg';
-            img.alt = 'Pickup and Drop Service';
-        }
-        img.style.width = '100%';
-        img.style.height = '100%';
-        img.style.objectFit = 'cover';
-        imgContainer.appendChild(img);
-        heroSection.appendChild(imgContainer);
-        // hide video
+        img.src = 'IMG-20260327-WA0000.jpg';
+        img.alt = serviceType === 'delivery' ? 'Food Delivery Service' : 'Pickup and Drop Service';
+        img.style.width = '100%'; img.style.height = '100%'; img.style.objectFit = 'cover';
+        imgContainer.appendChild(img); heroSection.appendChild(imgContainer);
         if(videoElem) videoElem.style.display = 'none';
-        // add medium-rectangle class
         heroSection.classList.add('medium-rectangle');
-        // update hero text for better experience
         const heroTitle = document.querySelector('.hero-title');
         const heroSubtitle = document.querySelector('.hero-subtitle');
-        if(serviceType === 'delivery') {
-            heroTitle.innerHTML = '🍔 Food Delivery <span>to your doorstep</span>';
-            heroSubtitle.innerText = 'Fresh & fast— tell us your order, we handle the rest.';
-        } else {
-            heroTitle.innerHTML = '📦 Pickup & Drop <span>made simple</span>';
-            heroSubtitle.innerText = 'Parcels, documents or persons — reliable and on time.';
-        }
+        if(serviceType === 'delivery') { heroTitle.innerHTML = '🍔 Food Delivery <span>to your doorstep</span>'; heroSubtitle.innerText = 'Fresh & fast— tell us your order, we handle the rest.'; }
+        else { heroTitle.innerHTML = '📦 Pickup & Drop <span>made simple</span>'; heroSubtitle.innerText = 'Parcels, documents or persons — reliable and on time.'; }
     }
-    
     function restoreHeroVideo() {
         const heroSection = document.getElementById('heroSection');
         const videoElem = document.getElementById('heroBgVideo');
         const existingImage = document.querySelector('.hero-static-image');
         if(existingImage) existingImage.remove();
-        if(videoElem) {
-            videoElem.style.display = 'block';
-            videoElem.play().catch(e => console.log("video play resumed"));
-        }
+        if(videoElem) { videoElem.style.display = 'block'; videoElem.play().catch(e=>console.log); }
         heroSection.classList.remove('medium-rectangle');
-        // restore original text
         const heroTitle = document.querySelector('.hero-title');
         const heroSubtitle = document.querySelector('.hero-subtitle');
         heroTitle.innerHTML = 'Swift Delivery in <span>Kollegala</span>';
         heroSubtitle.innerText = 'Food delivery • Pickup & Drop • Doorstep excellence with classic service';
     }
-    
-    // ----- Modify showService to replace hero with image -----
-    function showService(s){
-        document.getElementById('serviceSelection').style.display='none';
-        if(s==='delivery'){ 
-            document.getElementById('deliveryForm').classList.add('active'); 
-            state.currentForm='delivery'; 
-            updateDeliveryTotalFare(); 
-        } else { 
-            document.getElementById('pickupForm').classList.add('active'); 
-            state.currentForm='pickup'; 
-            updatePickupTotalFare(); 
-        }
-        setHeroToServiceImage(s);   // Replace video with image & medium rectangle
+    function showService(s) {
+        document.getElementById('serviceSelection').style.display = 'none';
+        if(s === 'delivery') { document.getElementById('deliveryForm').classList.add('active'); state.currentForm = 'delivery'; updateDeliveryFare(); }
+        else { document.getElementById('pickupForm').classList.add('active'); state.currentForm = 'pickup'; updatePickupFare(); }
+        setHeroToServiceImage(s);
         window.scrollTo({top:0,behavior:'smooth'});
     }
-    
-    function showServiceSelection(){ 
-        document.getElementById('serviceSelection').style.display='block'; 
+    function showServiceSelection() { 
+        document.getElementById('serviceSelection').style.display = 'block'; 
         document.getElementById('deliveryForm').classList.remove('active'); 
         document.getElementById('pickupForm').classList.remove('active');
-        restoreHeroVideo();          // Restore original video and full hero size
+        restoreHeroVideo();
     }
     
-    // ----- Rest of original functions (preserved fully) -----
-    function selectDistance(form,dist,fare){ 
-        let opts=document.querySelectorAll(`#${form}DistanceOptions .distance-option`); 
-        opts.forEach(o=>o.classList.remove('selected')); 
-        event.currentTarget.classList.add('selected'); 
-        if(form==='delivery'){ state.deliveryDistance=dist; state.deliveryFare=fare; updateDeliveryTotalFare(); } 
-        else { state.pickupDistance=dist; state.pickupFare=fare; updatePickupTotalFare(); } 
-    }
-    function updateDeliveryTotalFare(){ let total=(state.deliveryFare||0)+(state.deliveryTip||0); document.getElementById('deliveryFareDisplay').innerHTML= total ? `₹${total}` : '—'; }
-    function updatePickupTotalFare(){ let total=(state.pickupFare||0)+(state.pickupTip||0); document.getElementById('pickupFareDisplay').innerHTML= total ? `₹${total}` : '—'; }
-    function selectTip(form,amt){ if(form==='delivery'){ state.deliveryTip=amt; document.getElementById('deliveryTipDisplay').innerText=`₹${amt}`; updateDeliveryTotalFare(); } else { state.pickupTip=amt; document.getElementById('pickupTipDisplay').innerText=`₹${amt}`; updatePickupTotalFare(); } showToast(`Tip ₹${amt} added`); }
-    function applyCustomTip(form){ let inp=form==='delivery'?document.getElementById('deliveryCustomTip'):document.getElementById('pickupCustomTip'); let val=parseInt(inp.value); if(val>0){ if(form==='delivery'){ state.deliveryTip=val; document.getElementById('deliveryTipDisplay').innerText=`₹${val}`; updateDeliveryTotalFare(); } else { state.pickupTip=val; document.getElementById('pickupTipDisplay').innerText=`₹${val}`; updatePickupTotalFare(); } showToast(`Custom tip ₹${val} applied`); } else showToast('Enter valid amount','warning'); }
-    function selectPayment(form,method){ document.getElementById(`${form}UpiPayment`).classList.toggle('active',method==='upi'); }
-    function payWithUPI(form){ let fare=form==='delivery'?state.deliveryFare+state.deliveryTip:state.pickupFare+state.pickupTip; if(!fare){showToast('Select distance first','warning');return false;} window.open(`upi://pay?pa=9448167849@paytm&pn=ನಿಮ್ಮಮನೆವರೆಗೆ&am=${fare}&cu=INR`,'_blank'); return false; }
-    function selectServiceType(type){ state.serviceType=type; document.querySelectorAll('.service-type-option').forEach(o=>o.classList.remove('selected')); event.currentTarget.classList.add('selected'); document.getElementById('serviceType').value=type; }
-    function getUserLocation(f){ if(!navigator.geolocation) return; navigator.geolocation.getCurrentPosition(pos=>{ let addr=`Lat:${pos.coords.latitude.toFixed(5)},Lng:${pos.coords.longitude.toFixed(5)}`; let mapLink=`https://maps.google.com/?q=${pos.coords.latitude},${pos.coords.longitude}`; if(f==='delivery'){ state.deliveryLocation={lat:pos.coords.latitude,lng:pos.coords.longitude}; document.getElementById('deliveryLocationText').innerText=addr; let linkDiv=document.getElementById('deliveryLocationLink'); linkDiv.innerHTML=`<a href='${mapLink}' target='_blank'>📍 View Map</a>`; linkDiv.classList.remove('hidden'); document.getElementById('deliveryLocationDisplay').classList.add('active'); } else { state.pickupLocation={lat:pos.coords.latitude,lng:pos.coords.longitude}; document.getElementById('pickupLocationText').innerText=addr; let linkDiv=document.getElementById('pickupLocationLink'); linkDiv.innerHTML=`<a href='${mapLink}' target='_blank'>📍 View Map</a>`; linkDiv.classList.remove('hidden'); document.getElementById('pickupLocationDisplay').classList.add('active'); } showToast('Location captured'); }); }
-    function showAddressModal(f){ state.currentForm=f; document.getElementById('addressModal').classList.add('active'); }
-    function closeAddressModal(){ document.getElementById('addressModal').classList.remove('active'); }
-    function saveManualAddress(){ let addr=document.getElementById('manualAddress').value; if(!addr) return; let maps=document.getElementById('mapsLink').value; if(state.currentForm==='delivery'){ document.getElementById('deliveryLocationText').innerText=addr; if(maps) document.getElementById('deliveryLocationLink').innerHTML=`<a href='${maps}' target='_blank'>📍 Map</a>`; document.getElementById('deliveryLocationDisplay').classList.add('active'); } else { document.getElementById('pickupLocationText').innerText=addr; if(maps) document.getElementById('pickupLocationLink').innerHTML=`<a href='${maps}' target='_blank'>📍 Map</a>`; document.getElementById('pickupLocationDisplay').classList.add('active'); } closeAddressModal(); }
-    function generateReceipt(service){ let orderId='ORD'+Date.now(); let receipt=''; if(service==='delivery'){ let name=document.getElementById('deliveryName').value; let phone=document.getElementById('deliveryPhone').value; let outlet=document.getElementById('deliveryOutlet').value; let items=document.getElementById('deliveryItems').value; let total=state.deliveryFare+state.deliveryTip; receipt=`🍽️ FOOD ORDER - ನಿಮ್ಮಮನೆವರೆಗೆ\nID:${orderId}\n${name} | ${phone}\nOutlet:${outlet}\nItems:${items}\nDelivery: ₹${total} (Tip:₹${state.deliveryTip})\nPayment: ${document.querySelector('input[name="deliveryPayment"]:checked').value}\nThank you!`; } else { let name=document.getElementById('pickupName').value; let phone=document.getElementById('pickupPhone').value; let delAddr=document.getElementById('deliveryAddress').value; let total=state.pickupFare+state.pickupTip; receipt=`📦 PICKUP & DROP\nID:${orderId}\n${name} | ${phone}\nDelivery Address:${delAddr}\nService:${state.serviceType}\nTotal:₹${total} (Tip:₹${state.pickupTip})\nWe will contact you.`; } document.getElementById('receiptContent').innerText=receipt; document.getElementById('receiptModal').classList.add('active'); }
-    function closeReceipt(){ document.getElementById('receiptModal').classList.remove('active'); }
-    function sendToWhatsApp(){ let msg=encodeURIComponent(document.getElementById('receiptContent').innerText); window.open(`https://wa.me/919448167849?text=${msg}`,'_blank'); showToast('Order sent! We will confirm.'); setTimeout(()=>{ closeReceipt(); showServiceSelection(); },1500); }
-    function showToast(msg,type='success'){ let t=document.getElementById('toast'); t.innerText=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3000); }
-    document.getElementById('deliveryOrderForm')?.addEventListener('submit',e=>{ e.preventDefault(); if(!state.deliveryFare){showToast('Select distance','warning');return;} generateReceipt('delivery'); });
-    document.getElementById('pickupOrderForm')?.addEventListener('submit',e=>{ e.preventDefault(); if(!state.pickupFare){showToast('Select distance','warning');return;} if(!state.serviceType){showToast('Select service type','warning');return;} generateReceipt('pickup'); });
+    document.getElementById('deliveryDistanceKm')?.addEventListener('input', updateDeliveryFare);
+    document.getElementById('pickupDistanceKm')?.addEventListener('input', updatePickupFare);
+    document.getElementById('deliveryOrderForm')?.addEventListener('submit', e => { e.preventDefault(); if(state.deliveryFare === 0 && state.deliveryFare !== undefined) { showToast('Please enter valid distance','warning'); return; } generateReceipt('delivery'); });
+    document.getElementById('pickupOrderForm')?.addEventListener('submit', e => { e.preventDefault(); if(state.pickupFare === 0 && state.pickupFare !== undefined) { showToast('Please enter valid distance','warning'); return; } if(!state.serviceType) { showToast('Select service type','warning'); return; } generateReceipt('pickup'); });
+    
+    setTimeout(() => { updateDeliveryFare(); updatePickupFare(); }, 100);
 </script>
 </body>
-    </html>
+</html>
