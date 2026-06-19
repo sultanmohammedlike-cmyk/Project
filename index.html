@@ -585,7 +585,7 @@
     }
     
     function closeReceipt() { document.getElementById('receiptModal').classList.remove('active'); }
-    function sendToWhatsApp() { let msg = encodeURIComponent(document.getElementById('receiptContent').innerText); window.open(`https://wa.me/919448167849?text=${msg}`,'_blank'); showToast('Order shared! We will confirm.'); setTimeout(()=>{ closeReceipt(); showServiceSelection(); },1500); }
+    function sendToWhatsApp() { let msg = encodeURIComponent(document.getElementById('receiptContent').innerText); window.open(`https://wa.me/918762167849?text=${msg}`,'_blank'); showToast('Order shared! We will confirm.'); setTimeout(()=>{ closeReceipt(); showServiceSelection(); },1500); }
     function showToast(msg) { let t=document.getElementById('toast'); t.innerText=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3000); }
     
     // Hero transitions & UI
